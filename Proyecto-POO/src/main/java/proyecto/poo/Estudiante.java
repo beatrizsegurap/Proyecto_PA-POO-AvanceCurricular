@@ -1,17 +1,19 @@
 
 package proyecto.poo;
+import java.util.ArrayList;
 
 public class Estudiante{
     private int rut;
     private String nombre;
     private String carrera;
-    //private Asignatura[] asignaturasAprobadas;
+    private ArrayList <Asignatura> asignaturasAprobadas;
 
     //Constructor
     public Estudiante(int rut, String nombre, String carrera){
         this.rut = rut;
         this.nombre= nombre;
         this.carrera = carrera;
+        this.asignaturasAprobadas = new ArrayList<>();
     }
 
     //Get y set
@@ -19,7 +21,7 @@ public class Estudiante{
         return rut;
     }
 
-    public void setRut(String rut){
+    public void setRut(int rut){
         this.rut = rut;
     }
 
@@ -37,6 +39,10 @@ public class Estudiante{
 
     public void setCarrera(String carrera){
         this.carrera = carrera;
+    }
+
+    public void agregarAsignaturaAprobada(Asignatura a){
+        this.asignaturasAprobadas.add(a);
     }
 
 }

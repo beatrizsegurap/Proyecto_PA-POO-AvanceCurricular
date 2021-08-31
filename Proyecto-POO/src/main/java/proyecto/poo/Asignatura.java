@@ -1,18 +1,20 @@
 
 package proyecto.poo;
+import java.util.ArrayList;
 
 public class Asignatura{
     public int id;
     private String nombre;
     private int semestre;
     private int creditos;
-    //private Asignatura[] preRequisitos;
+    private ArrayList <Asignatura> asignaturasPrerequisitos;
 
     //Constructor
     public Asignatura(int id, String nombre, int semestre, int creditos){
         this.id = id;
         this.nombre = nombre;
         this.semestre = semestre;
+        this.asignaturasPrerequisitos = new ArrayList<>();
 
     }
 
@@ -39,6 +41,14 @@ public class Asignatura{
 
     public void setCreditos(int creditos){
         this.creditos = creditos;
+    }
+
+    public void mostrarAsignatura(){
+        System.out.println(this.nombre);
+    }
+
+    public void agregarPrerequisito(Asignatura a){
+        this.asignaturasPrerequisitos.add(a);
     }
 
 }

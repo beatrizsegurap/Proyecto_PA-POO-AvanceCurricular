@@ -1,22 +1,24 @@
 package proyecto.poo;
+import java.util.ArrayList;
 
 public class Profesor{
-    private String rut;
+    private int rut;
     private String nombre;
-   // private Asignatura[] asignaturasImpartidas;
+    private ArrayList <Asignatura> asignaturasImpartidas;
 
     //Constructor
-    public Profesor(String rut, String nombre){
+    public Profesor(int rut, String nombre){
         this.rut = rut;
         this.nombre = nombre;
+        this.asignaturasImpartidas = new ArrayList<>();
     }
 
     //Get y set
-    public String getRut(){
+    public int getRut(){
         return rut;
     }
 
-    public void setRut(String rut){
+    public void setRut(int rut){
         this.rut = rut;
     }
 
@@ -26,6 +28,10 @@ public class Profesor{
 
     public void setNombre(String nombre){
         this.nombre = nombre;
+    }
+
+    public void agregarAsignaturaImpartida(Asignatura a){
+        this.asignaturasImpartidas.add(a);
     }
 
 }
