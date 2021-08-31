@@ -2,20 +2,20 @@
 package proyecto.poo;
 
 public class Estudiante{
-    private String rut;
+    private int rut;
     private String nombre;
     private String carrera;
     //private Asignatura[] asignaturasAprobadas;
 
     //Constructor
-    public Estudiante(String rut, String nombre, String carrera){
+    public Estudiante(int rut, String nombre, String carrera){
         this.rut = rut;
         this.nombre= nombre;
         this.carrera = carrera;
     }
 
     //Get y set
-    public String getRut(){
+    public int getRut(){
         return rut;
     }
 
