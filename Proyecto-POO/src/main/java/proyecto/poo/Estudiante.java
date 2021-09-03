@@ -3,13 +3,13 @@ package proyecto.poo;
 import java.util.ArrayList;
 
 public class Estudiante{
-    private int rut;
+    private String rut;
     private String nombre;
     private String carrera;
     private ArrayList <Asignatura> asignaturasAprobadas;
 
     //Constructor
-    public Estudiante(int rut, String nombre, String carrera){
+    public Estudiante(String rut, String nombre, String carrera){
         this.rut = rut;
         this.nombre= nombre;
         this.carrera = carrera;
@@ -17,11 +17,11 @@ public class Estudiante{
     }
 
     //Get y set
-    public int getRut(){
+    public String getRut(){
         return rut;
     }
 
-    public void setRut(int rut){
+    public void setRut(String rut){
         this.rut = rut;
     }
 
