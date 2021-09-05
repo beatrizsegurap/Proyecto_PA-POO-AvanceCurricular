@@ -15,6 +15,8 @@ public class Main{
         HashMap alumnos = new HashMap();
         File localizacion = new File("Datos_alumnos.csv");
         String locDatosAlumnos = localizacion.getAbsolutePath();
+        Scanner lector = new Scanner(System.in);
+        int opcion =  99;
         try {
             // Abrir el .csv 
             csvAlumnos = new CSV(locDatosAlumnos);
@@ -43,6 +45,24 @@ public class Main{
                 // Volver a leer otra línea del fichero
                 linea = csvAlumnos.nextLine();
             }
+            
+            System.err.println("Data_alumnos.csv cargada");
+            do{
+                System.out.println("MENÚ\n");       //Formato de menú
+                System.out.println("----------------\nELIGE UNA OPCIÓN\n----------------\n");
+                System.out.println("1: AGREGAR UN ALUMNO\n");
+                System.out.println("2: BUSCAR ALUMNO POR RUT\n");
+                System.out.println("3: MOSTRAR TODOS LOS ALUMNOS\n");
+                System.out.println("->\n");
+                switch(opcion){
+                    case 0: break;
+                    case 1: //AGREGAR ALUMNO
+                    case 2: //BUSCAR POR RUT
+                    case 3: //MOSTRAR TODOS LOS ALUMNO
+                }
+                opcion = lector.nextInt();
+                
+            }while(opcion!=0);
         } 
         catch (IOException e){
             e.printStackTrace();
