@@ -3,27 +3,27 @@ package proyecto.poo;
 import java.util.ArrayList;
 
 public class Asignatura{
-    private int id;
+    private String id;
     private String nombre;
-    private int semestre;
-    private int creditos;
+    private String semestre;
+    private String creditos;
     private ArrayList <Asignatura> asignaturasPrerequisitos;
 
     //Constructor
-    public Asignatura(int id, String nombre, int semestre, int creditos){
+    public Asignatura(String id, String nombre, String semestre, String creditos){
         this.id = id;
         this.nombre = nombre;
         this.semestre = semestre;
         this.asignaturasPrerequisitos = new ArrayList<>();
-
+            
     }
 
     //Get y set
-    public int getSemestre(){
+    public String getSemestre(){
         return semestre;
     }
 
-    public void setSemestre(int semestre){
+    public void setSemestre(String semestre){
         this.semestre = semestre;
     }
 
@@ -35,15 +35,15 @@ public class Asignatura{
         this.nombre = nombre;
     }
 
-     public int getCreditos(){
+     public String getCreditos(){
         return creditos;
     }
 
-    public void setCreditos(int creditos){
+    public void setCreditos(String creditos){
         this.creditos = creditos;
     }
 
-    public int getId(){
+    public String getId(){
         return id;
     }
 

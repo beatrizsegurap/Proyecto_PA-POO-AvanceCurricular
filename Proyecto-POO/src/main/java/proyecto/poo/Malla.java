@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Malla{
     private String nombreCarrera;
-    private int cantSemestres;
+    private String cantSemestres;
     private ArrayList <Asignatura> asignaturas;
 
     //Constructor
-    public Malla(String carrera, int semestres){
+    public Malla(String carrera, String semestres){
         nombreCarrera = carrera;
         cantSemestres = semestres;
         this.asignaturas = new ArrayList<>();
@@ -19,7 +19,7 @@ public class Malla{
         return cantSemestres;
     }
 
-    public void setCantSemestres(int semestres){
+    public void setCantSemestres(String semestres){
         cantSemestres = semestres;
     }
 
