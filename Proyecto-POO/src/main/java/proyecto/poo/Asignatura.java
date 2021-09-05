@@ -3,7 +3,7 @@ package proyecto.poo;
 import java.util.ArrayList;
 
 public class Asignatura{
-    public int id;
+    private int id;
     private String nombre;
     private int semestre;
     private int creditos;
@@ -41,6 +41,10 @@ public class Asignatura{
 
     public void setCreditos(int creditos){
         this.creditos = creditos;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public void mostrarAsignatura(){

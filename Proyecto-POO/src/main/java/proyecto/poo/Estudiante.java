@@ -1,6 +1,6 @@
 
 package proyecto.poo;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Estudiante{
     private String rut;
@@ -13,7 +13,16 @@ public class Estudiante{
         this.rut = rut;
         this.nombre= nombre;
         this.carrera = carrera;
-        this.asignaturasAprobadas = new ArrayList<>();
+        asignaturasAprobadas = new ArrayList<>();
+    }
+
+    public Estudiante(String rut, String nombre, String carrera, ArrayList<Asignatura> asignaturas){
+        this.rut = rut;
+        this.nombre= nombre;
+        this.carrera = carrera;
+        asignaturasAprobadas = new ArrayList<>();
+        asignaturasAprobadas.addAll(asignaturas);
+
     }
 
     //Get y set

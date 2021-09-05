@@ -138,11 +138,13 @@ public class CSV{
             
             if (index==field)
             {
+                s.close();
                 return(output);
             }
             index =(index+1);
         }
         //System.out.println("Campo "+field+" no Existe");
+        s.close();
         return(null);
     }
     

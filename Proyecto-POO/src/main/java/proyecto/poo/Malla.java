@@ -35,9 +35,27 @@ public class Malla{
         this.asignaturas.add(a);
     }
 
+    //Sobrecarga de metodos
+
     public void mostrarAsignaturas(){
         for(int i=0;i<this.asignaturas.size();i++){
             this.asignaturas.get(i).mostrarAsignatura();
+        }
+    }
+
+    public void mostrarAsignaturas(String nombreAsignatura){
+        for(int i=0;i<this.asignaturas.size();i++){
+            if (this.asignaturas.get(i).getNombre().equals(nombreAsignatura)){
+            this.asignaturas.get(i).mostrarAsignatura();
+            }
+        }
+    }
+
+    public void mostrarAsignaturas(int id){
+        for(int i=0;i<this.asignaturas.size();i++){
+            if (this.asignaturas.get(i).getId()==id){
+            this.asignaturas.get(i).mostrarAsignatura();
+            }
         }
     }
 

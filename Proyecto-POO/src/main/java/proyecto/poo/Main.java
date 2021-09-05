@@ -12,7 +12,7 @@ public class Main{
     
     public static void main(String[] args){
         CSV csvAlumnos = null;
-        HashMap alumnos = new HashMap();
+        Map <String,Estudiante> alumnos = new HashMap<String,Estudiante>();
         File localizacion = new File("Datos_alumnos.csv");
         String locDatosAlumnos = localizacion.getAbsolutePath();
         Scanner lector = new Scanner(System.in);
