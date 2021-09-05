@@ -6,11 +6,18 @@ public class Profesor{
     private String nombre;
     private ArrayList <Asignatura> asignaturasImpartidas;
 
-    //Constructor
+    //Constructor con sobrecarga
     public Profesor(int rut, String nombre){
         this.rut = rut;
         this.nombre = nombre;
         this.asignaturasImpartidas = new ArrayList<>();
+    }
+
+    public Profesor(int rut, String nombre, ArrayList<Asignatura> aImpartidas){
+        this.rut = rut;
+        this.nombre = nombre;
+        asignaturasImpartidas = new ArrayList<>();
+        asignaturasImpartidas.addAll(aImpartidas);
     }
 
     //Get y set
@@ -32,6 +39,28 @@ public class Profesor{
 
     public void agregarAsignaturaImpartida(Asignatura a){
         this.asignaturasImpartidas.add(a);
+    }
+
+    public void mostrarAsignaturasImpartidas(){
+        for(int i=0;i<this.asignaturasImpartidas.size();i++){
+            this.asignaturasImpartidas.get(i).mostrarAsignatura();
+        }
+    }
+
+    public void mostrarAsignaturasImpartidas(String nombreAsignatura){
+        for(int i=0;i<this.asignaturasImpartidas.size();i++){
+            if (this.asignaturasImpartidas.get(i).getNombre().equals(nombreAsignatura)){
+            this.asignaturasImpartidas.get(i).mostrarAsignatura();
+            }
+        }
+    }
+
+    public void mostrarAsignaturasImpartidas(int id){
+        for(int i=0;i<this.asignaturasImpartidas.size();i++){
+            if (this.asignaturasImpartidas.get(i).getId()==id){
+            this.asignaturasImpartidas.get(i).mostrarAsignatura();
+            }
+        }
     }
 
 }
