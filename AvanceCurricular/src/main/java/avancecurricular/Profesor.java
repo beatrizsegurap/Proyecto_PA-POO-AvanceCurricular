@@ -1,7 +1,15 @@
-package proyecto.poo;
-import java.util.ArrayList;
-
-public class Profesor{
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package avancecurricular;
+import java.util.*;
+/**
+ *
+ * @author beatr
+ */
+public class Profesor {
     private int rut;
     private String nombre;
     private ArrayList <Asignatura> asignaturasImpartidas;
@@ -62,6 +70,4 @@ public class Profesor{
             }
         }
     }
-
 }
-

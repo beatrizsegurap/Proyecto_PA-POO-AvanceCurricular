@@ -1,14 +1,21 @@
-
-package proyecto.poo;
-import java.util.ArrayList;
-
-public class Malla{
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package avancecurricular;
+import java.util.*;
+/**
+ *
+ * @author beatr
+ */
+public class Malla {
     private String nombreCarrera;
-    private String cantSemestres;
+    private int cantSemestres;
     private ArrayList <Asignatura> asignaturas;
 
     //Constructor
-    public Malla(String carrera, String semestres){
+    public Malla(String carrera, int semestres){
         nombreCarrera = carrera;
         cantSemestres = semestres;
         this.asignaturas = new ArrayList<>();
@@ -19,7 +26,7 @@ public class Malla{
         return cantSemestres;
     }
 
-    public void setCantSemestres(String semestres){
+    public void setCantSemestres(int semestres){
         cantSemestres = semestres;
     }
 
@@ -58,6 +65,4 @@ public class Malla{
             }
         }
     }
-
 }
-

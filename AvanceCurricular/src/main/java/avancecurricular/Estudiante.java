@@ -1,22 +1,29 @@
-
-package proyecto.poo;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package avancecurricular;
 import java.util.*;
-
-public class Estudiante{
-    private String rut;
+/**
+ *
+ * @author beatr
+ */
+public class Estudiante {
+    private int rut;
     private String nombre;
-    private String carrera;
-    private ArrayList <Asignatura> asignaturasAprobadas;
+    private Malla carrera;
+    private ArrayList <Modulo> asignaturasAprobadas;
 
     //Constructor
-    public Estudiante(String rut, String nombre, String carrera){
+    public Estudiante(int rut, String nombre, Malla carrera){
         this.rut = rut;
         this.nombre= nombre;
         this.carrera = carrera;
         asignaturasAprobadas = new ArrayList<>();
     }
 
-    public Estudiante(String rut, String nombre, String carrera, ArrayList<Asignatura> asignaturas){
+    public Estudiante(int rut, String nombre, Malla carrera, ArrayList<Modulo> asignaturas){
         this.rut = rut;
         this.nombre= nombre;
         this.carrera = carrera;
@@ -26,11 +33,11 @@ public class Estudiante{
     }
 
     //Get y set
-    public String getRut(){
+    public int getRut(){
         return rut;
     }
 
-    public void setRut(String rut){
+    public void setRut(int rut){
         this.rut = rut;
     }
 
@@ -43,16 +50,15 @@ public class Estudiante{
     }
 
     public String getCarrera(){
-        return carrera;
+        return carrera.getNombreCarrera();
     }
 
-    public void setCarrera(String carrera){
+    public void setCarrera(Malla carrera){
         this.carrera = carrera;
     }
 
-    public void agregarAsignaturaAprobada(Asignatura a){
+    public void agregarModuloAprobada(Modulo a){
         this.asignaturasAprobadas.add(a);
     }
-
+   
 }
-

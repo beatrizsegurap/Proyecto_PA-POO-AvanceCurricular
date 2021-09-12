@@ -1,9 +1,15 @@
-package proyecto.poo;
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package avancecurricular;
 import java.util.*;
 import java.io.*;
-
-
+/**
+ *
+ * @author beatr
+ */
 public class CSV{
 
     //Variables de instancia
@@ -77,7 +83,7 @@ public class CSV{
     {
         Scanner s = new Scanner(line);
         int index =(0);
-        s.useDelimiter(",|\\n");
+        s.useDelimiter(";|\\n");
         String output;
         
         while(s.hasNext())
@@ -91,7 +97,7 @@ public class CSV{
                     {
                         break;
                     }
-                    output =(output+","+(s.next()));
+                    output =(output+";"+(s.next()));
                 }
             }
             
@@ -118,7 +124,7 @@ public class CSV{
     {
         Scanner s = new Scanner(line);
         int index =(0);
-        s.useDelimiter(",|\\n");
+        s.useDelimiter(";|\\n");
         String output;
         
         while(s.hasNext())
@@ -128,7 +134,7 @@ public class CSV{
             {
                 while (true)
                 {
-                    output =(output+","+(s.next()));
+                    output =(output+";"+(s.next()));
                     if ((output.charAt((output.length())-1))==('\"'))
                     {
                         break;
@@ -158,3 +164,4 @@ public class CSV{
         file.close();
     }
 }
+
