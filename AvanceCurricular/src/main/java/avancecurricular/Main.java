@@ -16,82 +16,13 @@ public class Main {
 
 
     public static void main(String[] args){
+        //Variables a usar
+        Map <Integer,Estudiante> alumnos = new HashMap<Integer,Estudiante>();//Mapa de estudiantes con llave rut
+        Map <String, Malla> carreras = new HashMap<String, Malla>();//Mapa de mallas de carreras con llave nombre de carrera
+        Map <Integer, Asignatura> ramos = new HashMap<Integer, Asignatura>();//Mapa con asignaturas y llave ID de la asignatura
+        Menu menuPrincipal = new Menu();
         
-        CSV csvAsignaturas = null;
-        CSV csvCarreras = null;
-        //Mapa de estudiantes con llave rut
-        Map <Integer,Estudiante> alumnos = new HashMap<Integer,Estudiante>();
-        //Mapa de mallas de carreras con llave nombre de carrera
-        Map <String, Malla> carreras = new HashMap<String, Malla>();
-        //Mapa con asignaturas y llave ID de la asignatura
-        Map <Integer, Asignatura> ramos = new HashMap<Integer, Asignatura>();
-        File localizacionMalla = new File("carreras.csv");
-        File localizacionAsignatura = new File("asignaturas.csv");
-        String locCarreras = localizacionMalla.getAbsolutePath();
-        String locAsignaturas = localizacionAsignatura.getAbsolutePath();
-        int opcion =  99;
-        try {
-            // Abrir el .csv 
-            csvAsignaturas = new CSV(locAsignaturas);
-            // CSV ALUMNOS: 0 nombre/1 apellido/2 rut/3 semestre/4-5-6-7-8 notas
-            // Leer la primera linea del archivo Datos_alumnos
-            String lineaAsignatura = csvAsignaturas.firstLine();//Lector archivo carreras.csv
-            
-            //Leemos el archivo de asignaturas
-            while (lineaAsignatura != null) {
-                //Obtener los datos desde el archivo csv Alumnos
-                int idAsignatura = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, 0));
-                String nombreAsignatura = csvAsignaturas.get_csvField(lineaAsignatura, 1);
-                int semestre = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, 2));
-                int creditos = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, 3));
-                Asignatura ramo = new Asignatura(idAsignatura, nombreAsignatura, semestre, creditos);
-                //ArrayList <Asignatura> asignaturas = new ArrayList<Asignatura>();  
-
-                for (int i = 4; i<6; i++){
-                    //Creacion del mapa de asignaturas
-                    int idAsignaturaPreinscrita = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, i));
-                    if(idAsignaturaPreinscrita!=0){
-                        Asignatura preinscrita = ramos.get(idAsignaturaPreinscrita);
-                        ramo.agregarPrerequisito(preinscrita);
-                    }
-                } 
-                ramos.put(idAsignatura, ramo);
-                // Volver a leer otra línea del fichero
-                lineaAsignatura = csvAsignaturas.nextLine();
-            }
-            
-            csvCarreras = new CSV(locCarreras);
-            String lineaCarrera = csvCarreras.firstLine();//Lector archivo carreras.csv
-            //Leemos el archivo de carreras
-            while (lineaCarrera != null) {
-                //Obtener los datos desde el archivo csv Alumnos
-                String nombreCarrera = csvCarreras.get_csvField(lineaCarrera, 0);
-                Integer cantSemestres = Integer.parseInt(csvCarreras.get_csvField(lineaCarrera, 1));
-                Malla mallaCarrera = new Malla(nombreCarrera, cantSemestres);
-                
-                
-                //ArrayList <Asignatura> asignaturas = new ArrayList<Asignatura>();  
-                for (int i = 2; i<27; i++){
-                    //Creacion del mapa de asignaturas
-                    Integer idAsignatura = Integer.parseInt(csvCarreras.get_csvField(lineaCarrera, i));
-                    if(idAsignatura!=0){
-                        Asignatura asignaturaCarrera = ramos.get(idAsignatura);
-                        mallaCarrera.agregarAsignatura(asignaturaCarrera);
-                    }
-                } 
-
-                // Volver a leer otra línea del fichero
-                lineaCarrera = csvCarreras.nextLine();
-                carreras.put(nombreCarrera, mallaCarrera);
-            }
-            
-        } 
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        finally {
-        // Cierro el buffer de lectura
-        }
+        menuPrincipal.cargarDatos(carreras, ramos);
         
         int op;
         Scanner lector1 = new Scanner(System.in);
