@@ -4,15 +4,13 @@
  * and open the template in the editor.
  */
 package avancecurricular;
-import java.util.Scanner;
 import java.io.*;
 import java.util.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 /**
  *
- * @author beatr
+ * @author beatrizsegurap
+ * @author KiboSennin
+ * @author melillanf
  */
 public class Main {
 
@@ -28,8 +26,8 @@ public class Main {
         //Mapa con asignaturas y llave ID de la asignatura
         Map <Integer, Asignatura> ramos = new HashMap<Integer, Asignatura>();
         File localizacionMalla = new File("carreras.csv");
-        String locCarreras = localizacionMalla.getAbsolutePath();
         File localizacionAsignatura = new File("asignaturas.csv");
+        String locCarreras = localizacionMalla.getAbsolutePath();
         String locAsignaturas = localizacionAsignatura.getAbsolutePath();
         int opcion =  99;
         try {
@@ -51,7 +49,7 @@ public class Main {
 
                 for (int i = 4; i<6; i++){
                     //Creacion del mapa de asignaturas
-                    Integer idAsignaturaPreinscrita = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, i));
+                    int idAsignaturaPreinscrita = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, i));
                     if(idAsignaturaPreinscrita!=0){
                         Asignatura preinscrita = ramos.get(idAsignaturaPreinscrita);
                         ramo.agregarPrerequisito(preinscrita);
@@ -107,6 +105,7 @@ public class Main {
             System.out.println("2.Mostrar todos los Estudiantes");
             System.out.println("3.Buscar Estudiante");
             System.out.println("4.Mostrar carreras y sus asignaturas");
+            System.out.println("5.Generar reporte");
             System.out.println("0.Salir");
 
             op = lector1.nextInt();
@@ -196,9 +195,33 @@ public class Main {
                     }
                     break;
                 }
+                case 5:{
+                    try{
+                        BufferedWriter escritorBw;
+                        File reporte = new File("reporte.txt");
+                        FileWriter w = new FileWriter(reporte);
+                        BufferedWriter bw = new BufferedWriter(w);
+                        PrintWriter wr = new PrintWriter(bw);
+                        if(!reporte.exists()){
+                            reporte.createNewFile();
+                        }
+                        Set<Integer> keysRamos = ramos.keySet();
+                        for(Integer key:keysRamos){
+                            Asignatura auxAsignatura = ramos.get(key);
+                            wr.write("ID asignatura: "+key+"|Nombre asignatura: "+auxAsignatura.getNombre()+"\n");
+                        }
+                        wr.close();
+                        bw.close();
+                    }
+                    catch(IOException dou){
+                        dou.printStackTrace();
+                    }
+                    break;
+                }
                 case 0:
                 flag=false;
                 break;
+               
             }
         }while(flag);
      }

@@ -1,0 +1,73 @@
+ID asignatura: 9502|Nombre asignatura: Desarrollo de habilidades comunicacionales
+ID asignatura: 7211|Nombre asignatura: Enfermeria basica 
+ID asignatura: 7212|Nombre asignatura: Farmacologia básica
+ID asignatura: 7213|Nombre asignatura: Asepcia y bioseguridad
+ID asignatura: 7214|Nombre asignatura: Anatomia general
+ID asignatura: 7215|Nombre asignatura: Bioetica
+ID asignatura: 7217|Nombre asignatura: Atencion de urgencia
+ID asignatura: 7218|Nombre asignatura: psicologia y salud mental
+ID asignatura: 7219|Nombre asignatura: Informatica en salud
+ID asignatura: 7220|Nombre asignatura: Fisiologia y fisiopatologia
+ID asignatura: 2101|Nombre asignatura: Procesador de Textos I
+ID asignatura: 7221|Nombre asignatura: Salud familiar y comunitaria
+ID asignatura: 2102|Nombre asignatura: Documentos Comerciales y Laborales
+ID asignatura: 7222|Nombre asignatura: Pre clinica 1
+ID asignatura: 2103|Nombre asignatura: Redacción Comercial
+ID asignatura: 7223|Nombre asignatura: Enfermeria medico quirurgica
+ID asignatura: 7224|Nombre asignatura: Atencion de enfermeria de adulto
+ID asignatura: 2105|Nombre asignatura: Administración de Empresas
+ID asignatura: 7225|Nombre asignatura: Atencion de enfermeria infantil y adolescente
+ID asignatura: 2106|Nombre asignatura: Liderazgo y Trabajo en Equipo
+ID asignatura: 7226|Nombre asignatura: Cuidados a la enfermeria en la persona mayor
+ID asignatura: 2107|Nombre asignatura: Procesador de Textos II
+ID asignatura: 7227|Nombre asignatura: Pre clinica 2
+ID asignatura: 2108|Nombre asignatura: Taller de Redacción
+ID asignatura: 7228|Nombre asignatura: Calidad y seguridad en la atencion al usuario
+ID asignatura: 7229|Nombre asignatura: Atencion de urgencia intra hospitalaria
+ID asignatura: 2110|Nombre asignatura: Planilla Electrónica
+ID asignatura: 7230|Nombre asignatura: Enfermeria materna
+ID asignatura: 2111|Nombre asignatura: Relaciones Públicas
+ID asignatura: 7231|Nombre asignatura: Taller de enfermeria
+ID asignatura: 2112|Nombre asignatura: Bases de Datos
+ID asignatura: 7232|Nombre asignatura: Educacion por la salud y autocuidado
+ID asignatura: 2113|Nombre asignatura: Taller de Redacción en Inglés I
+ID asignatura: 7233|Nombre asignatura: Pre clinica 3
+ID asignatura: 7234|Nombre asignatura: Internado profesional
+ID asignatura: 2115|Nombre asignatura: Técnicas de Oficina
+ID asignatura: 7235|Nombre asignatura: Taller de integracion
+ID asignatura: 2117|Nombre asignatura: Ceremonial y protocolo
+ID asignatura: 2118|Nombre asignatura: Manejo de Aplicaciones Web
+ID asignatura: 2119|Nombre asignatura: Taller de Redacción en  Inglés II
+ID asignatura: 2121|Nombre asignatura: Taller de Administración de Eventos
+ID asignatura: 2122|Nombre asignatura: Ética y Emprendimiento
+ID asignatura: 2123|Nombre asignatura: Proyecto de Título
+ID asignatura: 2124|Nombre asignatura: Práctica Laboral
+ID asignatura: 2125|Nombre asignatura: Examen de Título
+ID asignatura: 1101|Nombre asignatura: Administracion y modelo de negocios
+ID asignatura: 1102|Nombre asignatura: Contabilidad
+ID asignatura: 1103|Nombre asignatura: Mercados financieros
+ID asignatura: 1104|Nombre asignatura: Herramientas tecnologicas
+ID asignatura: 1105|Nombre asignatura: Introduccion matematica
+ID asignatura: 1107|Nombre asignatura: Diagnostico empresarial
+ID asignatura: 1108|Nombre asignatura: Contabilidad para la gestion empresarial
+ID asignatura: 1109|Nombre asignatura: Suministros y compras internacionales
+ID asignatura: 1110|Nombre asignatura: Data empresarial
+ID asignatura: 1111|Nombre asignatura: Algebra
+ID asignatura: 1112|Nombre asignatura: Habilidades de comunicación efectiva
+ID asignatura: 1113|Nombre asignatura: Analisis economico
+ID asignatura: 1114|Nombre asignatura: Control presupuestario y costos
+ID asignatura: 1115|Nombre asignatura: Administracion de personas
+ID asignatura: 1116|Nombre asignatura: Gestion de contratistas y subcontratados
+ID asignatura: 1117|Nombre asignatura: Gestion de personas ERP
+ID asignatura: 1118|Nombre asignatura: Mentalidad emprendedora
+ID asignatura: 1119|Nombre asignatura: Procesos tributarios y laborales
+ID asignatura: 1120|Nombre asignatura: Administracion de clientes
+ID asignatura: 1121|Nombre asignatura: Sistema publico y recursos fiscales
+ID asignatura: 1122|Nombre asignatura: Gestion del negocio en sistemas ERP
+ID asignatura: 1123|Nombre asignatura: Estadistica descriptiva
+ID asignatura: 1124|Nombre asignatura: Portafolio de titulo
+ID asignatura: 1125|Nombre asignatura: Practica profesional
+ID asignatura: 4456|Nombre asignatura: Inglés I
+ID asignatura: 4457|Nombre asignatura: Inglés II
+ID asignatura: 4458|Nombre asignatura: Inglés III
+ID asignatura: 4459|Nombre asignatura: Inglés IV
