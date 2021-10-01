@@ -1,73 +1,86 @@
-ID asignatura: 9502|Nombre asignatura: Desarrollo de habilidades comunicacionales
-ID asignatura: 7211|Nombre asignatura: Enfermeria basica 
-ID asignatura: 7212|Nombre asignatura: Farmacologia básica
-ID asignatura: 7213|Nombre asignatura: Asepcia y bioseguridad
-ID asignatura: 7214|Nombre asignatura: Anatomia general
-ID asignatura: 7215|Nombre asignatura: Bioetica
-ID asignatura: 7217|Nombre asignatura: Atencion de urgencia
-ID asignatura: 7218|Nombre asignatura: psicologia y salud mental
-ID asignatura: 7219|Nombre asignatura: Informatica en salud
-ID asignatura: 7220|Nombre asignatura: Fisiologia y fisiopatologia
-ID asignatura: 2101|Nombre asignatura: Procesador de Textos I
-ID asignatura: 7221|Nombre asignatura: Salud familiar y comunitaria
-ID asignatura: 2102|Nombre asignatura: Documentos Comerciales y Laborales
-ID asignatura: 7222|Nombre asignatura: Pre clinica 1
-ID asignatura: 2103|Nombre asignatura: Redacción Comercial
-ID asignatura: 7223|Nombre asignatura: Enfermeria medico quirurgica
-ID asignatura: 7224|Nombre asignatura: Atencion de enfermeria de adulto
-ID asignatura: 2105|Nombre asignatura: Administración de Empresas
-ID asignatura: 7225|Nombre asignatura: Atencion de enfermeria infantil y adolescente
-ID asignatura: 2106|Nombre asignatura: Liderazgo y Trabajo en Equipo
-ID asignatura: 7226|Nombre asignatura: Cuidados a la enfermeria en la persona mayor
-ID asignatura: 2107|Nombre asignatura: Procesador de Textos II
-ID asignatura: 7227|Nombre asignatura: Pre clinica 2
-ID asignatura: 2108|Nombre asignatura: Taller de Redacción
-ID asignatura: 7228|Nombre asignatura: Calidad y seguridad en la atencion al usuario
-ID asignatura: 7229|Nombre asignatura: Atencion de urgencia intra hospitalaria
-ID asignatura: 2110|Nombre asignatura: Planilla Electrónica
-ID asignatura: 7230|Nombre asignatura: Enfermeria materna
-ID asignatura: 2111|Nombre asignatura: Relaciones Públicas
-ID asignatura: 7231|Nombre asignatura: Taller de enfermeria
-ID asignatura: 2112|Nombre asignatura: Bases de Datos
-ID asignatura: 7232|Nombre asignatura: Educacion por la salud y autocuidado
-ID asignatura: 2113|Nombre asignatura: Taller de Redacción en Inglés I
-ID asignatura: 7233|Nombre asignatura: Pre clinica 3
-ID asignatura: 7234|Nombre asignatura: Internado profesional
-ID asignatura: 2115|Nombre asignatura: Técnicas de Oficina
-ID asignatura: 7235|Nombre asignatura: Taller de integracion
-ID asignatura: 2117|Nombre asignatura: Ceremonial y protocolo
-ID asignatura: 2118|Nombre asignatura: Manejo de Aplicaciones Web
-ID asignatura: 2119|Nombre asignatura: Taller de Redacción en  Inglés II
-ID asignatura: 2121|Nombre asignatura: Taller de Administración de Eventos
-ID asignatura: 2122|Nombre asignatura: Ética y Emprendimiento
-ID asignatura: 2123|Nombre asignatura: Proyecto de Título
-ID asignatura: 2124|Nombre asignatura: Práctica Laboral
-ID asignatura: 2125|Nombre asignatura: Examen de Título
-ID asignatura: 1101|Nombre asignatura: Administracion y modelo de negocios
-ID asignatura: 1102|Nombre asignatura: Contabilidad
-ID asignatura: 1103|Nombre asignatura: Mercados financieros
-ID asignatura: 1104|Nombre asignatura: Herramientas tecnologicas
-ID asignatura: 1105|Nombre asignatura: Introduccion matematica
-ID asignatura: 1107|Nombre asignatura: Diagnostico empresarial
-ID asignatura: 1108|Nombre asignatura: Contabilidad para la gestion empresarial
-ID asignatura: 1109|Nombre asignatura: Suministros y compras internacionales
-ID asignatura: 1110|Nombre asignatura: Data empresarial
-ID asignatura: 1111|Nombre asignatura: Algebra
-ID asignatura: 1112|Nombre asignatura: Habilidades de comunicación efectiva
-ID asignatura: 1113|Nombre asignatura: Analisis economico
-ID asignatura: 1114|Nombre asignatura: Control presupuestario y costos
-ID asignatura: 1115|Nombre asignatura: Administracion de personas
-ID asignatura: 1116|Nombre asignatura: Gestion de contratistas y subcontratados
-ID asignatura: 1117|Nombre asignatura: Gestion de personas ERP
-ID asignatura: 1118|Nombre asignatura: Mentalidad emprendedora
-ID asignatura: 1119|Nombre asignatura: Procesos tributarios y laborales
-ID asignatura: 1120|Nombre asignatura: Administracion de clientes
-ID asignatura: 1121|Nombre asignatura: Sistema publico y recursos fiscales
-ID asignatura: 1122|Nombre asignatura: Gestion del negocio en sistemas ERP
-ID asignatura: 1123|Nombre asignatura: Estadistica descriptiva
-ID asignatura: 1124|Nombre asignatura: Portafolio de titulo
-ID asignatura: 1125|Nombre asignatura: Practica profesional
-ID asignatura: 4456|Nombre asignatura: Inglés I
-ID asignatura: 4457|Nombre asignatura: Inglés II
-ID asignatura: 4458|Nombre asignatura: Inglés III
-ID asignatura: 4459|Nombre asignatura: Inglés IV
+Nombre de carrera: Secretariado Bilingue
+Cantidad de semestres: 5
+Asignaturas:
+*Procesador de Textos I(2101)
+*Documentos Comerciales y Laborales(2102)
+*Redacción Comercial(2103)
+*Inglés I(4456)
+*Administración de Empresas(2105)
+*Liderazgo y Trabajo en Equipo(2106)
+*Procesador de Textos II(2107)
+*Taller de Redacción(2108)
+*Inglés II(4457)
+*Planilla Electrónica(2110)
+*Bases de Datos(2112)
+*Taller de Redacción en Inglés I(2113)
+*Inglés III(4458)
+*Técnicas de Oficina(2115)
+*Desarrollo de habilidades comunicacionales(9502)
+*Ceremonial y protocolo(2117)
+*Manejo de Aplicaciones Web(2118)
+*Taller de Redacción en  Inglés II(2119)
+*Inglés IV(4459)
+*Taller de Administración de Eventos(2121)
+*Ética y Emprendimiento(2122)
+*Proyecto de Título(2123)
+*Práctica Laboral(2124)
+*Examen de Título(2125)
+/////////////////////////////
+Nombre de carrera: Tecnico en Enfermeria
+Cantidad de semestres: 5
+Asignaturas:
+*Enfermeria basica (7211)
+*Farmacologia básica(7212)
+*Asepcia y bioseguridad(7213)
+*Anatomia general(7214)
+*Bioetica(7215)
+*Desarrollo de habilidades comunicacionales(9502)
+*Atencion de urgencia(7217)
+*psicologia y salud mental(7218)
+*Informatica en salud(7219)
+*Fisiologia y fisiopatologia(7220)
+*Salud familiar y comunitaria(7221)
+*Pre clinica 1(7222)
+*Enfermeria medico quirurgica(7223)
+*Atencion de enfermeria de adulto(7224)
+*Atencion de enfermeria infantil y adolescente(7225)
+*Cuidados a la enfermeria en la persona mayor(7226)
+*Pre clinica 2(7227)
+*Calidad y seguridad en la atencion al usuario(7228)
+*Atencion de urgencia intra hospitalaria(7229)
+*Enfermeria materna(7230)
+*Taller de enfermeria(7231)
+*Educacion por la salud y autocuidado(7232)
+*Pre clinica 3(7233)
+*Internado profesional(7234)
+*Taller de integracion(7235)
+/////////////////////////////
+Nombre de carrera: Tecnico en Administracion de Empresas
+Cantidad de semestres: 5
+Asignaturas:
+*Administracion y modelo de negocios(1101)
+*Contabilidad(1102)
+*Mercados financieros(1103)
+*Herramientas tecnologicas(1104)
+*Introduccion matematica(1105)
+*Desarrollo de habilidades comunicacionales(9502)
+*Diagnostico empresarial(1107)
+*Contabilidad para la gestion empresarial(1108)
+*Suministros y compras internacionales(1109)
+*Data empresarial(1110)
+*Algebra(1111)
+*Habilidades de comunicación efectiva(1112)
+*Analisis economico(1113)
+*Control presupuestario y costos(1114)
+*Administracion de personas(1115)
+*Gestion de contratistas y subcontratados(1116)
+*Gestion de personas ERP(1117)
+*Mentalidad emprendedora(1118)
+*Inglés I(4456)
+*Procesos tributarios y laborales(1119)
+*Administracion de clientes(1120)
+*Sistema publico y recursos fiscales(1121)
+*Gestion del negocio en sistemas ERP(1122)
+*Estadistica descriptiva(1123)
+*Inglés II(4457)
+/////////////////////////////

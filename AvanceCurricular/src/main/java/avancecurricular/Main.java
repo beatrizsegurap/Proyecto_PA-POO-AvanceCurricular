@@ -128,6 +128,7 @@ public class Main {
                 }
                 case 5:{
                     try{
+                        System.out.println("Creando reporte");
                         BufferedWriter escritorBw;
                         File reporte = new File("reporte.txt");
                         FileWriter w = new FileWriter(reporte);
@@ -137,12 +138,23 @@ public class Main {
                             reporte.createNewFile();
                         }
                         Set<Integer> keysRamos = ramos.keySet();
-                        for(Integer key:keysRamos){
-                            Asignatura auxAsignatura = ramos.get(key);
-                            wr.write("ID asignatura: "+key+"|Nombre asignatura: "+auxAsignatura.getNombre()+"\n");
+                        Set<String> keysCarreras = carreras.keySet();
+                        int contReport = 0;
+                        for(String key:keysCarreras){
+                            Malla auxMalla = carreras.get(key);
+                            wr.write("Nombre de carrera: "+auxMalla.getNombreCarrera()+"\nCantidad de semestres: "+auxMalla.getCantSemestres()+"\nAsignaturas:\n");
+                            for(int i=0; i<auxMalla.asignaturas.size();i++){
+                               Asignatura auxAsignatura = auxMalla.asignaturas.get(i);
+                               Asignatura iesimaAsignatura = ramos.get(auxAsignatura.getId());
+                               wr.write("*"+iesimaAsignatura.getNombre()+"("+iesimaAsignatura.getId()+")\n");
+                            }
+                            wr.write("/////////////////////////////\n");
+                            contReport++;
+                            System.out.println(contReport+"/"+keysCarreras.size());
                         }
                         wr.close();
                         bw.close();
+                        System.out.println("Reporte creado exitosamente");
                     }
                     catch(IOException dou){
                         dou.printStackTrace();
