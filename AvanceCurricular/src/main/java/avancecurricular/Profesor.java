@@ -70,4 +70,8 @@ public class Profesor {
             }
         }
     }
+    
+    public ArrayList<Asignatura> getAsignaturasImpartidas(){
+        return asignaturasImpartidas;
+    }
 }
