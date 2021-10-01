@@ -59,6 +59,10 @@ public class Asignatura {
     public ArrayList<Asignatura> getAsignaturasPrerequisitos(){
         return asignaturasPrerequisitos;
     }
+    
+    public ArrayList<Modulo> getModulos(){
+        return modulos;
+    }
 
     public void mostrarAsignatura(){
         System.out.println(this.id+"  "+this.nombre);
@@ -76,5 +80,21 @@ public class Asignatura {
         for(int i=0;i<this.asignaturasPrerequisitos.size();i++){
             this.asignaturasPrerequisitos.get(i).mostrarAsignatura();
         }
+    }
+    
+    public void mostrarModulos(){
+        for(int i=0;i<this.modulos.size();i++){
+            this.modulos.get(i).mostrarModulo();
+        }
+    }
+    
+    public void removeModulo(Modulo m){
+        for(int i=0;i<this.modulos.size();i++){
+            if(this.modulos.get(i).getIdModulo()== m.getIdModulo()){
+                this.modulos.remove(this.modulos.get(i));
+                return;
+            }
+        }
+        
     }
 }

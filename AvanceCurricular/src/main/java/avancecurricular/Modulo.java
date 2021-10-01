@@ -15,8 +15,9 @@ public class Modulo {
     private String nombreProfesor;
     private String periodo;
     private double nota;
+    private int id;
 
-    public Modulo(Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) {
+    public Modulo(int id,Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) {
         this.asignatura = asignatura;
         this.estudiante = nombreEstudiante;
         this.nombreProfesor = nombreProfesor;
@@ -30,6 +31,14 @@ public class Modulo {
     
     public String getNombreAsignatura() {
         return asignatura.getNombre();
+    }
+    
+    public int getIdAsignatura() {
+        return asignatura.getId();
+    }
+    
+    public int getIdModulo() {
+        return id;
     }
 
     public String getNombreEstudiante() {
@@ -70,6 +79,10 @@ public class Modulo {
 
     public void mostrarEstudiante(){
         System.out.println("Nombre: "+estudiante.getNombre()+"\n"+"Rut: "+estudiante.getRut());
+    }
+    
+    public void mostrarModulo(){
+        System.out.println("Nombre asignatura: "+asignatura.getNombre()+"\n"+"Periodo: "+periodo+"\n"+"Nota: "+nota+"\n");
     }
     
 }

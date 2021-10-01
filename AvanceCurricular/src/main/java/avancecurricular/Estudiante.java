@@ -60,5 +60,43 @@ public class Estudiante {
     public void agregarModuloAprobada(Modulo a){
         this.asignaturasAprobadas.add(a);
     }
+    
+    public boolean removeModulo(Modulo a){
+        for(int i=0;i<this.asignaturasAprobadas.size();i++){
+            if (this.asignaturasAprobadas.get(i).getIdAsignatura()==a.getIdAsignatura()){
+                this.asignaturasAprobadas.get(i).getAsignatura().removeModulo(this.asignaturasAprobadas.get(i));
+                this.asignaturasAprobadas.remove(this.asignaturasAprobadas.get(i));
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public void removeModulos(){
+        for(int i=0;i<this.asignaturasAprobadas.size();i++){
+            removeModulo(this.asignaturasAprobadas.get(i));
+        }
+    }
+    
+     public ArrayList<Modulo> getModulos(){
+        return asignaturasAprobadas;
+    }
+    
+    public void mostrarModulos(){
+        for(int i=0;i<this.asignaturasAprobadas.size();i++){
+            System.out.println("Nombre asignatura: "+this.asignaturasAprobadas.get(i).getNombreAsignatura());
+            System.out.println("Periodo en que la curso: " + this.asignaturasAprobadas.get(i).getPeriodo());
+            System.out.println("Nota de aprobacion: " + this.asignaturasAprobadas.get(i).getNota());
+            System.out.println("-------------------------------------------------");
+        }
+    }
    
+    public boolean cursoAsignatura(int id){
+        for(int i=0;i<this.asignaturasAprobadas.size();i++){
+            if (this.asignaturasAprobadas.get(i).getIdAsignatura()==id){
+                return true;
+            }
+        }
+        return false;
+    }
 }
