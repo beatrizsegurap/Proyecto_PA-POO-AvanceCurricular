@@ -61,7 +61,8 @@ public class Estudiante {
         this.asignaturasAprobadas.add(a);
     }
     
-    public boolean removeModulo(Modulo a){
+   //Sobrecarga en estudiante
+    public boolean removeModulos(Modulo a){
         for(int i=0;i<this.asignaturasAprobadas.size();i++){
             if (this.asignaturasAprobadas.get(i).getIdAsignatura()==a.getIdAsignatura()){
                 this.asignaturasAprobadas.get(i).getAsignatura().removeModulo(this.asignaturasAprobadas.get(i));
@@ -74,7 +75,7 @@ public class Estudiante {
     
     public void removeModulos(){
         for(int i=0;i<this.asignaturasAprobadas.size();i++){
-            removeModulo(this.asignaturasAprobadas.get(i));
+            removeModulos(this.asignaturasAprobadas.get(i));
         }
     }
     
