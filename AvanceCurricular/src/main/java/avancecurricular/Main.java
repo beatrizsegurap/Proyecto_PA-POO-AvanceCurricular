@@ -352,7 +352,9 @@ public class Main {
                                                         break;
                                                     }
                                                     case 4:{
-                                                        
+                                                        //eliminamos los modulos a las que pertenece dicha asignatura y estos de los estudiantes
+                                                        carreraSeleccionada.asignaturaCarrera(idAsignatura).removeModulos();
+                                                        //eliminamos la asignatura de la carrera
                                                         carreraSeleccionada.removeAsignatura(carreraSeleccionada.asignaturaCarrera(idAsignatura));
                                                         System.out.println("La asignatura fue eliminada exitosamente");
                                                         break;
