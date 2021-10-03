@@ -65,4 +65,21 @@ public class Malla {
             }
         }
     }
+    
+    public Asignatura asignaturaCarrera(int id){
+        for(int i=0;i<this.asignaturas.size();i++){
+            if (this.asignaturas.get(i).getId()==id){
+            return this.asignaturas.get(i);
+            }
+        }
+        return null;
+    }
+    
+    public void removeAsignatura(Asignatura a){
+        for(int i=0;i<this.asignaturas.size();i++){
+            if (this.asignaturas.get(i).getId()==a.getId()){
+                this.asignaturas.remove(a);
+            }
+        }
+    }
 }

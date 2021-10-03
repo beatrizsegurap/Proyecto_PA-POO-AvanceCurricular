@@ -37,14 +37,14 @@ public class Modulo {
         return asignatura.getId();
     }
     
+    public void setAsignatura(Asignatura asignatura) {
+        this.asignatura = asignatura;
+    }
+    
     public int getIdModulo() {
         return id;
     }
 
-    public String getNombreEstudiante() {
-        return estudiante.getNombre();
-    }
-    
     public Estudiante getEstudiante() {
         return estudiante;
     }
@@ -52,31 +52,31 @@ public class Modulo {
     public String getNombreProfesor() {
         return nombreProfesor;
     }
+    
+    public void setNombreProfesor(String nombreProfesor) {
+        this.nombreProfesor = nombreProfesor;
+    }
 
     public String getPeriodo() {
         return periodo;
+    }
+    
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
     }
 
     public double getNota() {
         return nota;
     }
-
-    public void setAsignatura(Asignatura asignatura) {
-        this.asignatura = asignatura;
-    }
-
-    public void setNombreProfesor(String nombreProfesor) {
-        this.nombreProfesor = nombreProfesor;
-    }
-
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
-    }
-
+    
     public void setNota(double nota) {
         this.nota = nota;
     }
-
+    
+    public String getNombreEstudiante() {
+        return estudiante.getNombre();
+    }
+    
     public void mostrarEstudiante(){
         System.out.println("Nombre: "+estudiante.getNombre()+"\n"+"Rut: "+estudiante.getRut());
     }

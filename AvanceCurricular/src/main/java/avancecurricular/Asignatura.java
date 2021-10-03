@@ -65,7 +65,10 @@ public class Asignatura {
     }
 
     public void mostrarAsignatura(){
-        System.out.println(this.id+"  "+this.nombre);
+        System.out.println("Id: "+this.id+"  nombre: "+this.nombre);
+        System.out.println("semestre: "+this.semestre);
+        System.out.println("creditos: "+this.creditos);
+        System.out.println(".......................................................");
     }
 
     public void agregarPrerequisito(Asignatura a){
@@ -88,13 +91,20 @@ public class Asignatura {
         }
     }
     
-    public void removeModulo(Modulo m){
+    public void removeModulos(Modulo m){
         for(int i=0;i<this.modulos.size();i++){
             if(this.modulos.get(i).getIdModulo()== m.getIdModulo()){
+                this.modulos.get(i).getEstudiante().removeModulos(m);
                 this.modulos.remove(this.modulos.get(i));
                 return;
             }
         }
         
+    }
+    
+    public void removeModulos(){
+        for(int i=0;i<this.modulos.size();i++){
+                removeModulos(this.modulos.get(i));
+        }
     }
 }

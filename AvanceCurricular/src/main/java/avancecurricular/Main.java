@@ -39,8 +39,9 @@ public class Main {
             System.out.println("4.Mostrar carreras y sus asignaturas");
             System.out.println("5.Generar reporte");
             System.out.println("6.Registrar Profesor");
-            System.out.println("7.Mostrar todos los Profesor");
+            System.out.println("7.Mostrar todos los Profesores");
             System.out.println("8.Buscar Profesor por rut");
+            System.out.println("9.Modificar/eliminar carrera y asignaturas");
             System.out.println("0.Salir");
 
             op = lector1.nextInt();
@@ -262,6 +263,138 @@ public class Main {
                     }
                     break;
                 }
+                case 9:{
+                    System.out.println("Estas son las Carreras que imparte el Instituto");
+                    System.out.println("------------------------------------------------");
+                    int cont=1;
+                    for(Map.Entry<String,Malla> entry:carreras.entrySet()){
+                        System.out.println(cont+") Nombre Carrera:  "+entry.getValue().getNombreCarrera());
+                        System.out.println("------------------------------------------------");
+                        cont+=1;
+                    }
+                    System.out.println("Ingrese el numero de la carrera que desea modificar");
+                    int indice = Integer.parseInt(lector1.nextLine());
+                    cont=1;
+                    for(Map.Entry<String,Malla> entry:carreras.entrySet()){
+                        if(indice==cont){
+                            System.out.println("Esta es la informacion de la carrera");
+                            System.out.println("Nombre Carrera:  "+entry.getValue().getNombreCarrera());
+                            System.out.println("duración de la carrera:  "+entry.getValue().getCantSemestres()+" semestres.");
+                            entry.getValue().mostrarAsignaturas();
+                            
+                            int op1;
+                            System.out.println("---------------------------------------------");
+                            System.out.println("Seleccione que es lo que quiere modificar");
+                            boolean flag1 = true;
+
+                            do{
+                                System.out.println("1.Nombre carrera");
+                                System.out.println("2.Duracion de la carrera");
+                                System.out.println("3.Modificar Asignatura de la carrera");
+                                System.out.println("4.Eliminar carrera");
+                                System.out.println("0.Salir");
+
+                                op1 = lector1.nextInt();
+                                lector1.nextLine();
+
+                                switch (op1){
+                                    case 1:{
+                                        System.out.println("Ingrese el nuevo nombre de la carrera");
+                                        String nuevoNombre = lector1.nextLine();
+                                        entry.getValue().setNombreCarrera(nuevoNombre);
+                                        break;
+                                    }
+                                    case 2:{
+                                        System.out.println("Ingrese la nueva cantidad de semestres de la carrera");
+                                        int cantSemestres = Integer.parseInt(lector1.nextLine());
+                                        entry.getValue().setCantSemestres(cantSemestres);
+                                        break;
+                                    }
+                                    case 3:{
+                                        System.out.println("---------------------------------------------");
+                                        System.out.println("Ingrese la Id de la asignatura que desea modificar");
+                                        int idAsignatura = Integer.parseInt(lector1.nextLine());
+                                        Malla carreraSeleccionada = entry.getValue();
+                                        carreraSeleccionada.mostrarAsignaturas(idAsignatura);
+                                        if(carreraSeleccionada.asignaturaCarrera(idAsignatura)!=null){
+                                            int op2;
+                                            System.out.println("---------------------------------------------");
+                                            System.out.println("Seleccione que es lo que quiere modificar");
+                                            boolean flag2 = true;
+
+                                            do{
+                                                System.out.println("1.Nombre asignatura");
+                                                System.out.println("2.Semestre a la que corresponde");
+                                                System.out.println("3.Cantidad de creditos");
+                                                System.out.println("4.Eliminar asignatura");
+                                                System.out.println("0.Salir");
+
+                                                op2 = lector1.nextInt();
+                                                lector1.nextLine();
+
+                                                switch (op2){
+                                                    case 1:{
+                                                        System.out.println("Ingrese el nuevo nombre de la asignatura");
+                                                        String nuevoNombreAsignatura = lector1.nextLine();
+                                                        carreraSeleccionada.asignaturaCarrera(idAsignatura).setNombre(nuevoNombreAsignatura);
+                                                        break;
+                                                    }
+                                                    case 2:{
+                                                        System.out.println("Ingrese el numero al nuevo semestre que corresponde la asignatura");
+                                                        int semestre = Integer.parseInt(lector1.nextLine());
+                                                        carreraSeleccionada.asignaturaCarrera(idAsignatura).setSemestre(semestre);
+                                                        break;
+                                                    }
+                                                    case 3:{
+                                                        System.out.println("Ingrese la nueva cantidad de creditos de la asignatura");
+                                                        int creditos = Integer.parseInt(lector1.nextLine());
+                                                        carreraSeleccionada.asignaturaCarrera(idAsignatura).setCreditos(creditos);
+                                                        break;
+                                                    }
+                                                    case 4:{
+                                                        
+                                                        carreraSeleccionada.removeAsignatura(carreraSeleccionada.asignaturaCarrera(idAsignatura));
+                                                        System.out.println("La asignatura fue eliminada exitosamente");
+                                                        break;
+                                                    }
+                                                    case 0:
+                                                flag2=false;
+                                                break;
+                                                }
+                                            }while(flag2);
+                                                    
+                                        }
+                                        else{
+                                            System.out.println("la id ingresada no existe");
+                                        }
+                                        break;
+                                    }
+                                    case 4:{
+                                        //Para eliminar carrera no es necesario eliminar asignaturas pero debemos modificar los estudiantes que la cursan
+                                        for(Map.Entry<Integer,Estudiante> entry1:alumnos.entrySet()){
+                                            if(entry1.getValue().getCarrera().equals(entry.getValue().getNombreCarrera())){
+                                                //Declaramos la carrera como null en estudiante
+                                                entry1.getValue().setCarrera(null);
+                                            }
+                                        }
+                                        //Ahora podemos eliminar la carrera del mapa
+                                        carreras.remove(entry.getValue().getNombreCarrera());
+                                        System.out.println("La carrera fue eliminada exitosamente");
+                                        break;
+                                    }
+                                    
+                                case 0:
+                                flag1=false;
+                                break;
+                                }
+                            }while(flag1);
+                            break;
+                        }
+                        cont+=1;
+                    }
+                    break;
+                }
+
                 case 0:
                 flag=false;
                 break;

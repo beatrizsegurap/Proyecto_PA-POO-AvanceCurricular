@@ -31,7 +31,6 @@ public class Estudiante {
         asignaturasAprobadas.addAll(asignaturas);
 
     }
-
     //Get y set
     public int getRut(){
         return rut;
@@ -65,7 +64,6 @@ public class Estudiante {
     public boolean removeModulos(Modulo a){
         for(int i=0;i<this.asignaturasAprobadas.size();i++){
             if (this.asignaturasAprobadas.get(i).getIdAsignatura()==a.getIdAsignatura()){
-                this.asignaturasAprobadas.get(i).getAsignatura().removeModulo(this.asignaturasAprobadas.get(i));
                 this.asignaturasAprobadas.remove(this.asignaturasAprobadas.get(i));
                 return true;
             }
