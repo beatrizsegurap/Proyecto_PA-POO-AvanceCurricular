@@ -22,6 +22,7 @@ public class Asignatura {
         this.id = id;
         this.nombre = nombre;
         this.semestre = semestre;
+        this.creditos = creditos;
         this.asignaturasPrerequisitos = new ArrayList<>();
         this.modulos = new ArrayList<>();
             

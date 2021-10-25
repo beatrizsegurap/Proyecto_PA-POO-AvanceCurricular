@@ -31,7 +31,6 @@ public class Menu {
                 int semestre = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, 2));
                 int creditos = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, 3));
                 Asignatura ramo = new Asignatura(idAsignatura, nombreAsignatura, semestre, creditos);
-
                 for (int i = 4; i<6; i++){
                     int idAsignaturaPreinscrita = Integer.parseInt(csvAsignaturas.get_csvField(lineaAsignatura, i));
                     if(idAsignaturaPreinscrita!=0){
@@ -52,7 +51,7 @@ public class Menu {
                 Integer cantSemestres = Integer.parseInt(csvCarreras.get_csvField(lineaCarrera, 1));
                 Malla mallaCarrera = new Malla(nombreCarrera, cantSemestres);
   
-                for (int i = 2; i<27; i++){
+                for (int i = 2; i<29; i++){
                     //Creacion del mapa de asignaturas
                     int idAsignatura = Integer.parseInt(csvCarreras.get_csvField(lineaCarrera, i));
                     if(idAsignatura!=0){

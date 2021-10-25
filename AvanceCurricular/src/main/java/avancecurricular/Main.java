@@ -42,6 +42,7 @@ public class Main {
             System.out.println("7.Mostrar todos los Profesores");
             System.out.println("8.Buscar Profesor por rut");
             System.out.println("9.Modificar/eliminar carrera y asignaturas");
+            System.out.println("10.Filtrar asignaturas ");
             System.out.println("0.Salir");
 
             op = lector1.nextInt();
@@ -396,7 +397,198 @@ public class Main {
                     }
                     break;
                 }
+                case 10:{//Principal
+                    Scanner lectorfiltro = new Scanner(System.in);
+                    int opcfiltro;
+                    int contfiltro = 0;
+                    String opcarrera;
+                    System.out.println("---------------------------------------------");
+                    System.out.println("Seleccione una opcion:");
+                    System.out.println("1. Filtrar una asignatura especifica");
+                    System.out.println("2. Filtrar todas las asignaturas");
+                    opcfiltro = lectorfiltro.nextInt();
+                    lectorfiltro.nextLine();
+                    switch(opcfiltro){
+                        
+                        case 1:{//Asignatura especifica
+                            System.out.println("Seleccione una de las siguientes carreras disponibles:");
+                            for(Map.Entry<String,Malla> entry:carreras.entrySet()){
+                                contfiltro++;
+                                System.out.println(contfiltro+"."+entry.getValue().getNombreCarrera());   
+                            } 
+                            System.out.println("---------------------------------------------");
+                            opcfiltro = lectorfiltro.nextInt();
+                            lectorfiltro.nextLine();
+                            switch(opcfiltro){
+                                case 1:{
+                                    String nombreCarrera = "Secretariado Bilingue";
+                                    Malla auxMalla = carreras.get(nombreCarrera);
+                                    ArrayList auxArrayList = auxMalla.asignaturas;
+                                    System.out.println("Seleccione el criterio a utilizar:");
+                                    System.out.println("1. Filtrar por creditos");
+                                    System.out.println("2. Filtrar por semestre");
+                                    opcfiltro = lectorfiltro.nextInt();                            
+                                    switch(opcfiltro){
+                                        case 1:{
+                                            System.out.println("Ingrese la cantidad de creditos de las asignaturas (3, 4, 8 o 10):");
+                                            opcfiltro = lectorfiltro.nextInt();
+                                            lectorfiltro.nextLine();
+                                            for(int k = 0; k<auxArrayList.size();k++){
+                                                Asignatura auxAsignatura = (Asignatura) auxArrayList.get(k);
+                                                Integer auxCreditos = auxAsignatura.getCreditos();
+                                                if(auxCreditos.equals(opcfiltro)){
+                                                    System.out.println("Nombre asignatura: "+auxAsignatura.getNombre());
+                                                    System.out.println("Cantidad de creditos: "+auxAsignatura.getCreditos());
+                                                }
+                                            }
+                                            break;
+                                        }
+                                        case 2:{
+                                            System.out.println("Ingrese el semestre en el que se imparten los ramos (del 1 al 5) : ");
+                                            opcfiltro=lectorfiltro.nextInt();
+                                            lectorfiltro.nextLine();
+                                            for(int k = 0; k<auxArrayList.size();k++){
+                                                Asignatura auxAsignatura = (Asignatura) auxArrayList.get(k);
+                                                Integer auxSemestre = auxAsignatura.getSemestre();
+                                                if(auxSemestre.equals(opcfiltro)){
+                                                    System.out.println("Nombre asignatura: "+auxAsignatura.getNombre());
+                                                    System.out.println("Semestre: "+auxAsignatura.getSemestre());
+                                                }
+                                            }
+                                            break;
+                                        }
+                                       
+                                    }                                                                        
+                                    break;
+                                }
+                                
+                                case 2:{ 
+                                    String nombreCarrera = "Tecnico en Enfermeria";
+                                    Malla auxMalla = carreras.get(nombreCarrera);
+                                    ArrayList auxArrayList = auxMalla.asignaturas;
+                                    System.out.println("Seleccione el criterio a utilizar:");
+                                    System.out.println("1. Filtrar por creditos");
+                                    System.out.println("2. Filtrar por semestre");
+                                    opcfiltro = lectorfiltro.nextInt();                            
+                                    switch(opcfiltro){
+                                        case 1:{
+                                            System.out.println("Ingrese la cantidad de creditos de las asignaturas (3, 4, 8 o 10):");
+                                            opcfiltro = lectorfiltro.nextInt();
+                                            lectorfiltro.nextLine();
+                                            for(int k = 0; k<auxArrayList.size();k++){
+                                                Asignatura auxAsignatura = (Asignatura) auxArrayList.get(k);
+                                                Integer auxCreditos = auxAsignatura.getCreditos(); 
+                                            }
+                                            break;
+                                        }
+                                        case 2:{
+                                            System.out.println("Ingrese el semestre en el que se imparten los ramos (del 1 al 5) : ");
+                                            opcfiltro=lectorfiltro.nextInt();
+                                            lectorfiltro.nextLine();
+                                            for(int k = 0; k<auxArrayList.size();k++){
+                                                Asignatura auxAsignatura = (Asignatura) auxArrayList.get(k);
+                                                Integer auxSemestre = auxAsignatura.getSemestre();
+                                                if(auxSemestre.equals(opcfiltro)){
+                                                    System.out.println("Nombre asignatura: "+auxAsignatura.getNombre());
+                                                    System.out.println("Semestre: "+auxAsignatura.getSemestre());
+                                                }
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                                case 3:{ 
+                                    String nombreCarrera = "Tecnico en Administracion de Empresas";
+                                    Malla auxMalla = carreras.get(nombreCarrera);
+                                    ArrayList auxArrayList = auxMalla.asignaturas;
+                                    System.out.println("Seleccione el criterio a utilizar:");
+                                    System.out.println("1. Filtrar por creditos");
+                                    System.out.println("2. Filtrar por semestre");
+                                    opcfiltro = lectorfiltro.nextInt();
+                                    lectorfiltro.nextLine();
+                                    switch(opcfiltro){
+                                        case 1:{
+                                            System.out.println("Ingrese la cantidad de creditos de las asignaturas (3, 4, 8 o 10):");
+                                            opcfiltro = lectorfiltro.nextInt();
+                                            lectorfiltro.nextLine();
+                                            for(int k = 0; k<auxArrayList.size();k++){
+                                                Asignatura auxAsignatura = (Asignatura) auxArrayList.get(k);
+                                                Integer auxCreditos = auxAsignatura.getCreditos();
+                                                if(auxCreditos.equals(opcfiltro)){
+                                                    System.out.println("Nombre asignatura: "+auxAsignatura.getNombre());
+                                                    System.out.println("Cantidad de creditos: "+auxAsignatura.getCreditos());
+                                                }
+                                          
+                                            }
+                                            break;
+                                        }
+                                        case 2:{
+                                            System.out.println("Ingrese el semestre en el que se imparten los ramos (del 1 al 5) : ");
+                                            opcfiltro=lectorfiltro.nextInt();
+                                            lectorfiltro.nextLine();
+                                            for(int k = 0; k<auxArrayList.size();k++){
+                                                Asignatura auxAsignatura = (Asignatura) auxArrayList.get(k);
+                                                Integer auxSemestre = auxAsignatura.getSemestre();
+                                                if(auxSemestre.equals(opcfiltro)){
+                                                    System.out.println("Nombre asignatura: "+auxAsignatura.getNombre());
+                                                    System.out.println("Semestre: "+auxAsignatura.getSemestre());
+                                                }
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                                
+                            }
+                            break;
+                        }
+    
+                        case 2:{
+                            System.out.println("Seleccione el criterio a utilizar:");
+                            System.out.println("1. Filtrar por creditos");
+                            System.out.println("2. Filtrar por semestre");
+                            opcfiltro = lectorfiltro.nextInt();                            
+                            switch(opcfiltro){
+                                case 1: {
+                                    System.out.println("Ingrese la cantidad de creditos de las asignaturas (3, 4, 8 o 10):");
+                                    opcfiltro = lectorfiltro.nextInt();
+                                    lectorfiltro.nextLine();//USAR MAPA DE RAMOS EN VEZ DE ESTA WEA 5:34 AM
+                                    for(Map.Entry<Integer,Asignatura> entry:ramos.entrySet()){
+                                        Asignatura auxAsignatura = entry.getValue();
+                                        Integer cantCreditos = auxAsignatura.getCreditos();
+                                        if(cantCreditos.equals(opcfiltro)){
+                                            System.out.println("Nombre asignatura: "+auxAsignatura.getNombre());
+                                            System.out.println("Cantidad de creditos: "+auxAsignatura.getCreditos());
+                                        }
+                                       
+                                    }    
+                                    break;
+                            }
 
+                                case 2:{
+                                    System.out.println("Ingrese el semestre en el que se imparten los ramos (del 1 al 5) : ");
+                                    opcfiltro=lectorfiltro.nextInt();
+                                    lectorfiltro.nextLine();
+                                    for(Map.Entry<Integer,Asignatura> entry:ramos.entrySet()){
+                                        Asignatura auxAsignatura = entry.getValue();
+                                        Integer semestre = auxAsignatura.getSemestre();
+                                        if(semestre.equals(opcfiltro)){
+                                            System.out.println("Nombre asignatura: "+auxAsignatura.getNombre());
+                                            System.out.println("Semestre: "+auxAsignatura.getSemestre());
+                                        }
+                                       
+                                    }  
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        
+                    }
+                    break;
+                }
                 case 0:
                 flag=false;
                 break;
