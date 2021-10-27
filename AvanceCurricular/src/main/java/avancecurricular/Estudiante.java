@@ -98,4 +98,26 @@ public class Estudiante {
         }
         return false;
     }
+    
+    public void avanceCurricular(){
+        double creditosAprobados = 0;
+        double promedio=0;
+        for(int i=0;i<this.asignaturasAprobadas.size();i++){
+            creditosAprobados+=this.asignaturasAprobadas.get(i).getAsignatura().getCreditos();
+            promedio+=this.asignaturasAprobadas.get(i).getNota();
+        }
+        double avanceCreditos = this.carrera.totalCreditos()/creditosAprobados;
+        promedio=promedio/this.asignaturasAprobadas.size();
+        System.out.println("El avance curricular del estudiante "+nombre+" es de\nAvance Curricular por creditos: "+avanceCreditos+"% de la carrera "+carrera.getNombreCarrera());
+        System.out.println("Avance curricular por asignaturas: "+this.asignaturasAprobadas.size()+" / "+this.carrera.totalAsignaturas());
+        System.out.println("Promedio de notas de estudiante: "+promedio+" \n");
+    }
+    
+    public double promedioNotas(){
+        double promedio=0;
+        for(int i=0;i<this.asignaturasAprobadas.size();i++){
+            promedio+=this.asignaturasAprobadas.get(i).getNota();
+        }
+        return promedio/this.asignaturasAprobadas.size();
+    }
 }

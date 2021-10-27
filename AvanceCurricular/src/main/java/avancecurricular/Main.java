@@ -43,6 +43,8 @@ public class Main {
             System.out.println("8.Buscar Profesor por rut");
             System.out.println("9.Modificar/eliminar carrera y asignaturas");
             System.out.println("10.Filtrar asignaturas ");
+            System.out.println("11.Ver avance curricular por Estudiante");
+            System.out.println("12.Estudiante con mejor promedio de notas del Instituto");
             System.out.println("0.Salir");
 
             op = lector1.nextInt();
@@ -587,6 +589,55 @@ public class Main {
                         }
                         
                     }
+                    break;
+                }
+                case 11:{
+                    boolean correct = true;
+                    while(correct){
+                        if(alumnos.size()==0){
+                            System.out.println("No hay estudiantes inscritos, intentelo luego de registrar un estudiante en el sistema \n");
+                            correct=false;
+                        }
+                        else{
+                            System.out.println("Ingrese el rut del Estudiante a buscar, sin puntos ni guion: ");
+                            int rutEstudiante = Integer.parseInt(lector1.nextLine());
+                            if(!alumnos.containsKey(rutEstudiante)){
+                                System.out.println("Rut incorrecto, no se encontro ningun estudiante asociado a este intentelo nuevamente");
+                            }
+                            else{
+                                System.out.println("Nombre estudiante: "+ alumnos.get(rutEstudiante).getNombre()+"\n"+"Carrera: "+alumnos.get(rutEstudiante).getCarrera());
+                                System.out.println("-------------------------------------------------");
+                                if(alumnos.get(rutEstudiante).getModulos().size()!=0){
+                                    alumnos.get(rutEstudiante).avanceCurricular();
+                                }
+                                else{
+                                    System.out.println("El estudiante no tiene avances en la carrera");
+                                }
+                                correct=false;
+                            }
+                        }
+                    }
+                    break;
+                }  
+                case 12:{
+                    String nombre="nombre";
+                    String carrera="carrera";
+                    int rut=0;
+                    
+                    double mayor=0;
+                    for(Map.Entry<Integer,Estudiante> entry:alumnos.entrySet()){
+                        if(entry.getValue().promedioNotas()>mayor){
+                            nombre=entry.getValue().getNombre();
+                            carrera = entry.getValue().getCarrera();
+                            mayor=entry.getValue().promedioNotas();
+                        }
+                    }
+                    System.out.println("El estudiante con mejor promedio de notas del Instituto es");
+                    System.out.println("Nombre: "+ nombre);
+                    System.out.println("Rut: "+ rut);
+                    System.out.println("Carrera: "+ carrera);
+                    System.out.println("Promedio: "+ mayor);
+                    System.out.println("------------------------------------------------");
                     break;
                 }
                 case 0:

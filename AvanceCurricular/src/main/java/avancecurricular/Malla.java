@@ -82,4 +82,36 @@ public class Malla {
             }
         }
     }
+    
+    public int creditosSemestre(int semestre){
+        int creditos=0;
+        for(int i=0;i<this.asignaturas.size();i++){
+            if(this.asignaturas.get(i).getSemestre()==semestre){
+                creditos+=this.asignaturas.get(i).getCreditos();
+            }
+        }
+        return creditos;
+    }
+    
+    public int asignaturasSemestre(int semestre){
+        int asignatura=0;
+        for(int i=0;i<this.asignaturas.size();i++){
+            if(this.asignaturas.get(i).getSemestre()==semestre){
+                asignatura+=1;
+            }
+        }
+        return asignatura;
+    }
+    
+    public int totalCreditos(){
+        int creditos=0;
+        for(int i=0;i<this.cantSemestres;i++){
+            creditos+=creditosSemestre(i);
+        }
+        return creditos;
+    }
+    
+    public int totalAsignaturas(){
+        return this.asignaturas.size();
+    }
 }
