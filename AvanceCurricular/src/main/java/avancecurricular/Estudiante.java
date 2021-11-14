@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author beatr
  */
-public class Estudiante {
+public abstract class Estudiante {
     private int rut;
     private String nombre;
     private Malla carrera;
@@ -100,6 +100,7 @@ public class Estudiante {
     }
     
     public void avanceCurricular(){
+        //Muestra el avance del alumno mostrando la cantidad de creditos que este lleva aprobado con las asignaturas cursadas y su promedio acumulado de notas
         double creditosAprobados = 0;
         double promedio=0;
         for(int i=0;i<this.asignaturasAprobadas.size();i++){
@@ -120,4 +121,7 @@ public class Estudiante {
         }
         return promedio/this.asignaturasAprobadas.size();
     }
+
+    public abstract void informacionPersonal();
+    public abstract String estado();
 }

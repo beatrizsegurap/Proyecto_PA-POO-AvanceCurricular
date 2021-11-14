@@ -5,6 +5,7 @@
  */
 package avancecurricular;
 import java.util.*;
+import java.io.*;
 /**
  *
  * @author beatr
@@ -113,5 +114,24 @@ public class Malla {
     
     public int totalAsignaturas(){
         return this.asignaturas.size();
+    }
+    public void estudiantesCarrera(Map <Integer,Estudiante> estudiantes){
+        int cantEstRegulares=0;
+        int cantEstCongelados=0;
+        int cantEstTitulados=0;
+        for(Map.Entry<Integer,Estudiante> entry:estudiantes.entrySet()){
+            if(entry.getValue().getCarrera().equals(nombreCarrera)){
+                if(entry.getValue().estado().equals("regular")){
+                    cantEstRegulares+=1;
+                }
+                if(entry.getValue().estado().equals("congelado")){
+                    cantEstCongelados+=1;
+                }
+                if(entry.getValue().estado().equals("titulado")){
+                    cantEstTitulados+=1;
+                }
+            }
+        }
+        System.out.println("La Cantidad de estudiantes de la carrera "+nombreCarrera+" es: \nEstudiantes Regulares: "+cantEstRegulares+"\nEstudiantes Congelados: "+cantEstCongelados+"\nEstudiantes Titulados: "+cantEstTitulados);
     }
 }

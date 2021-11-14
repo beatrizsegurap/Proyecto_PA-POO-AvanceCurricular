@@ -44,7 +44,7 @@ public class Main {
             System.out.println("9.Modificar/eliminar carrera y asignaturas");
             System.out.println("10.Filtrar asignaturas ");
             System.out.println("11.Ver avance curricular por Estudiante");
-            System.out.println("12.Estudiante con mejor promedio de notas del Instituto");
+            System.out.println("12.Estudiante de honor por carrera");
             System.out.println("0.Salir");
 
             op = lector1.nextInt();
@@ -52,6 +52,7 @@ public class Main {
 
             switch (op){
                 case 1:{
+                    
                     System.out.println("Ingrese nombre del Estudiante: ");
                     String nombre = lector1.nextLine();
                     System.out.println("Ingrese rut del estudiante sin guion ni puntos: ");
@@ -63,54 +64,134 @@ public class Main {
                     }
                     String nombreCa = lector1.nextLine();
                     Malla carreraEstudiante = carreras.get(nombreCa);
-                    Estudiante estudiante = new Estudiante(rut,nombre,carreraEstudiante);
-                    //Preguntamos si agregara asignaturas impartidas
-                    boolean opcion2=false;
-                    System.out.println("¿Desea agregar los modulos aprobados? si=1 /no=0");
-                    int agregar = Integer.parseInt(lector1.nextLine());
-                    if(agregar==1)opcion2=true;
-                    while(opcion2){
-                        System.out.println("Estas son las asignaturas asociadas a su carrera, ingrese la id de la asignatura a agregar: ");
-                        carreraEstudiante.mostrarAsignaturas();
-                        int idAsignaturaCursada = Integer.parseInt(lector1.nextLine());
-                        Asignatura aCursada = ramos.get(idAsignaturaCursada);
-                        if(aCursada.getAsignaturasPrerequisitos().size()!=0){
-                            for(int i=0;i<aCursada.getAsignaturasPrerequisitos().size();i++){
-                                if(!estudiante.cursoAsignatura(aCursada.getAsignaturasPrerequisitos().get(i).getId())){
-                                    Asignatura asignaturaPrerequisito = aCursada.getAsignaturasPrerequisitos().get(i);
-                                    System.out.println("ID: "+ asignaturaPrerequisito.getId()+"  Nombre: "+asignaturaPrerequisito.getNombre());
-                                    System.out.println("Debe inscribir esta asignatura prerequisito previamente");
+                    System.out.println("Seleccione el estado en que se encuentra el estudiante a registrar\n");
+                    int estado;
+                    boolean flag3=true;
+                    //Creamos el objeto estudiante segun su tipo. Aplicamos herencia y clases abstractas
+                    do{
+                        System.out.println("1.Regular");
+                        System.out.println("2.Congelado");
+                        System.out.println("3.Titulado");
+                        estado = lector1.nextInt();
+                        lector1.nextLine();
+                        
+                        switch (estado){
+                            case 1:{
+                                Estudiante estudiante = new EstudianteRegular(rut,nombre,carreraEstudiante);
+                                //Preguntamos si agregara asignaturas que ha cursado
+                                boolean opcion2=false;
+                                System.out.println("¿Desea agregar los modulos aprobados hasta la fecha? si=1 /no=0");
+                                int agregar = Integer.parseInt(lector1.nextLine());
+                                if(agregar==1)opcion2=true;
+                                while(opcion2){
+                                    System.out.println("Estas son las asignaturas asociadas a su carrera, ingrese la id de la asignatura a agregar: ");
+                                    carreraEstudiante.mostrarAsignaturas();
+                                    int idAsignaturaCursada = Integer.parseInt(lector1.nextLine());
+                                    Asignatura aCursada = ramos.get(idAsignaturaCursada);
+                                    if(aCursada.getAsignaturasPrerequisitos().size()!=0){
+                                        for(int i=0;i<aCursada.getAsignaturasPrerequisitos().size();i++){
+                                            if(!estudiante.cursoAsignatura(aCursada.getAsignaturasPrerequisitos().get(i).getId())){
+                                                Asignatura asignaturaPrerequisito = aCursada.getAsignaturasPrerequisitos().get(i);
+                                                System.out.println("ID: "+ asignaturaPrerequisito.getId()+"  Nombre: "+asignaturaPrerequisito.getNombre());
+                                                System.out.println("Debe inscribir esta asignatura prerequisito previamente");
+                                                System.out.println("Ingrese promedio notas: ");
+                                                double notaPre = Double.parseDouble(lector1.nextLine());
+                                                System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
+                                                String periodoPre = lector1.nextLine();
+                                                System.out.println("Ingrese nombre Profesor: ");
+                                                String profesorPre = lector1.nextLine();
+                                                int idModulo = asignaturaPrerequisito.getId()+asignaturaPrerequisito.getModulos().size();
+                                                Modulo moduloPre = new Modulo(idModulo,asignaturaPrerequisito,estudiante,profesorPre,periodoPre,notaPre);
+                                                estudiante.agregarModuloAprobada(moduloPre);
+                                                asignaturaPrerequisito.agregarMoodulo(moduloPre);
+                                            }
+                                        }
+                                    }
+                                    System.out.println("Asignatura seleccionada: "+aCursada.getNombre());
                                     System.out.println("Ingrese promedio notas: ");
-                                    double notaPre = Double.parseDouble(lector1.nextLine());
+                                    double nota = Double.parseDouble(lector1.nextLine());
                                     System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
-                                    String periodoPre = lector1.nextLine();
+                                    String periodo = lector1.nextLine();
                                     System.out.println("Ingrese nombre Profesor: ");
-                                    String profesorPre = lector1.nextLine();
-                                    int idModulo = asignaturaPrerequisito.getId()+asignaturaPrerequisito.getModulos().size();
-                                    Modulo moduloPre = new Modulo(idModulo,asignaturaPrerequisito,estudiante,profesorPre,periodoPre,notaPre);
-                                    estudiante.agregarModuloAprobada(moduloPre);
-                                    asignaturaPrerequisito.agregarMoodulo(moduloPre);
+                                    String profesor = lector1.nextLine();
+                                    int idModulo = aCursada.getId()+aCursada.getModulos().size();
+                                    Modulo moduloCursado = new Modulo(idModulo,aCursada,estudiante,profesor,periodo,nota);
+                                    estudiante.agregarModuloAprobada(moduloCursado);
+                                    aCursada.agregarMoodulo(moduloCursado);
+                                    System.out.println("¿Desea agregar mas modulos aprobados?si=1 /no=0: ");
+                                    agregar= Integer.parseInt(lector1.nextLine());
+                                    if(agregar!=1)opcion2=false;
                                 }
+                                alumnos.put(rut,estudiante);
+                                System.out.println("El estudiante fue ingresado exitosamente");
+                                System.out.println("------------------------------------------------");
+                            break;
+                            }
+                            case 2:{
+                                System.out.println("Ingrese periodo de congelamiento: ");
+                                String periodoCongela = lector1.nextLine();
+                                Estudiante estudiante = new EstudianteCongelado(periodoCongela,rut,nombre,carreraEstudiante);
+                                //Preguntamos si agregara asignaturas que ha cursado
+                                boolean opcion2=false;
+                                System.out.println("¿Desea agregar los modulos aprobados hasta la fecha? si=1 /no=0");
+                                int agregar = Integer.parseInt(lector1.nextLine());
+                                if(agregar==1)opcion2=true;
+                                while(opcion2){
+                                    System.out.println("Estas son las asignaturas asociadas a su carrera, ingrese la id de la asignatura a agregar: ");
+                                    carreraEstudiante.mostrarAsignaturas();
+                                    int idAsignaturaCursada = Integer.parseInt(lector1.nextLine());
+                                    Asignatura aCursada = ramos.get(idAsignaturaCursada);
+                                    if(aCursada.getAsignaturasPrerequisitos().size()!=0){
+                                        for(int i=0;i<aCursada.getAsignaturasPrerequisitos().size();i++){
+                                            if(!estudiante.cursoAsignatura(aCursada.getAsignaturasPrerequisitos().get(i).getId())){
+                                                Asignatura asignaturaPrerequisito = aCursada.getAsignaturasPrerequisitos().get(i);
+                                                System.out.println("ID: "+ asignaturaPrerequisito.getId()+"  Nombre: "+asignaturaPrerequisito.getNombre());
+                                                System.out.println("Debe inscribir esta asignatura prerequisito previamente");
+                                                System.out.println("Ingrese promedio notas: ");
+                                                double notaPre = Double.parseDouble(lector1.nextLine());
+                                                System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
+                                                String periodoPre = lector1.nextLine();
+                                                System.out.println("Ingrese nombre Profesor: ");
+                                                String profesorPre = lector1.nextLine();
+                                                int idModulo = asignaturaPrerequisito.getId()+asignaturaPrerequisito.getModulos().size();
+                                                Modulo moduloPre = new Modulo(idModulo,asignaturaPrerequisito,estudiante,profesorPre,periodoPre,notaPre);
+                                                estudiante.agregarModuloAprobada(moduloPre);
+                                                asignaturaPrerequisito.agregarMoodulo(moduloPre);
+                                            }
+                                        }
+                                    }
+                                    System.out.println("Asignatura seleccionada: "+aCursada.getNombre());
+                                    System.out.println("Ingrese promedio notas: ");
+                                    double nota = Double.parseDouble(lector1.nextLine());
+                                    System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
+                                    String periodo = lector1.nextLine();
+                                    System.out.println("Ingrese nombre Profesor: ");
+                                    String profesor = lector1.nextLine();
+                                    int idModulo = aCursada.getId()+aCursada.getModulos().size();
+                                    Modulo moduloCursado = new Modulo(idModulo,aCursada,estudiante,profesor,periodo,nota);
+                                    estudiante.agregarModuloAprobada(moduloCursado);
+                                    aCursada.agregarMoodulo(moduloCursado);
+                                    System.out.println("¿Desea agregar mas modulos aprobados?si=1 /no=0: ");
+                                    agregar= Integer.parseInt(lector1.nextLine());
+                                    if(agregar!=1)opcion2=false;
+                                }
+                                alumnos.put(rut,estudiante);
+                                System.out.println("El estudiante fue ingresado exitosamente");
+                                System.out.println("------------------------------------------------");
+                            break;
+                            }
+                            case 3:{
+                                System.out.println("Ingrese periodo de titulacion: ");
+                                String periodoTitula = lector1.nextLine();
+                                Estudiante estudiante = new EstudianteTitulado(periodoTitula,rut,nombre,carreraEstudiante);
+                                System.out.println("El estudiante fue ingresado exitosamente");
+                                System.out.println("------------------------------------------------");
+                            break;
                             }
                         }
-                        System.out.println("Asignatura seleccionada: "+aCursada.getNombre());
-                        System.out.println("Ingrese promedio notas: ");
-                        double nota = Double.parseDouble(lector1.nextLine());
-                        System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
-                        String periodo = lector1.nextLine();
-                        System.out.println("Ingrese nombre Profesor: ");
-                        String profesor = lector1.nextLine();
-                        int idModulo = aCursada.getId()+aCursada.getModulos().size();
-                        Modulo moduloCursado = new Modulo(idModulo,aCursada,estudiante,profesor,periodo,nota);
-                        estudiante.agregarModuloAprobada(moduloCursado);
-                        aCursada.agregarMoodulo(moduloCursado);
-                        System.out.println("¿Desea agregar mas modulos aprobados?si=1 /no=0: ");
-                        agregar= Integer.parseInt(lector1.nextLine());
-                        if(agregar!=1)opcion2=false;
-                    }
-                    alumnos.put(rut,estudiante);
-                    System.out.println("El estudiante fue ingresado exitosamente");
-                    System.out.println("------------------------------------------------");
+                        flag3 = false;
+                    }while(flag3);
+                   break;
                 }
                 case 2:{
                         if(alumnos.size()==0){
@@ -122,6 +203,7 @@ public class Main {
                             System.out.println("Nombre: "+ entry.getValue().getNombre());
                             System.out.println("Rut: "+ entry.getValue().getRut());
                             System.out.println("Carrera: "+ entry.getValue().getCarrera());
+                            System.out.println("Estado: "+ entry.getValue().estado());
                             System.out.println("------------------------------------------------");
                         }
                     }
@@ -137,14 +219,19 @@ public class Main {
                             System.out.println("Rut incorrecto, no se encontro ningun estudiante asociado a este intentelo nuevamente");
                         }
                         else{
-                            System.out.println("Nombre estudiante: "+ alumnos.get(rutEstudiante).getNombre()+"\n"+"Carrera: "+alumnos.get(rutEstudiante).getCarrera());
+                            System.out.println("Nombre estudiante: "+ alumnos.get(rutEstudiante).getNombre()+"\n"+"Carrera: "+alumnos.get(rutEstudiante).getCarrera()+"\n"+"Estado: "+alumnos.get(rutEstudiante).estado());
                             System.out.println("-------------------------------------------------");
                             if(alumnos.get(rutEstudiante).getModulos().size()!=0){
                                 System.out.println("Asignaturas aprobadas del estudiante");
                                 alumnos.get(rutEstudiante).mostrarModulos();
                             }
                             else{
-                                System.out.println("El estudiante no tiene asignaturas ingresadas, o aprobadas");
+                                if(alumnos.get(rutEstudiante).estado().equals("titulado")){
+                                    System.out.println("El estudiante aprobo todas las asignaturas de su carrera");
+                                }
+                                else{
+                                    System.out.println("El estudiante no tiene asignaturas ingresadas, o aprobadas");
+                                }
                             }
                             correct=false;
                         }
