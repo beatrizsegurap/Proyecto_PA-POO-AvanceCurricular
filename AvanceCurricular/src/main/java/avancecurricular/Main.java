@@ -707,24 +707,38 @@ public class Main {
                     break;
                 }  
                 case 12:{
+                    
                     String nombre="nombre";
                     String carrera="carrera";
                     int rut=0;
                     
-                    double mayor=0;
-                    for(Map.Entry<Integer,Estudiante> entry:alumnos.entrySet()){
-                        if(entry.getValue().promedioNotas()>mayor){
-                            nombre=entry.getValue().getNombre();
-                            carrera = entry.getValue().getCarrera();
-                            mayor=entry.getValue().promedioNotas();
+                    for(Map.Entry<String,Malla> entry:carreras.entrySet()){
+                        carrera=entry.getValue().getNombreCarrera();
+                        double mayor=0;
+                        int contAlumnos=0;
+                        for(Map.Entry<Integer,Estudiante> entry1:alumnos.entrySet()){
+                            if(entry1.getValue().getCarrera().equals(carrera)){                            
+                                if(entry1.getValue().promedioNotas()>mayor){
+                                    contAlumnos+=1;
+                                    nombre=entry1.getValue().getNombre();
+                                    rut=entry1.getValue().getRut();
+                                    mayor=entry1.getValue().promedioNotas();
+                                }
+                            }
+                        }
+                        if(contAlumnos>0){
+                            System.out.println("El estudiante con mejor promedio de notas de la carrera "+carrera+"\n");
+                            System.out.println("Nombre: "+ nombre);
+                            System.out.println("Rut: "+ rut);
+                            System.out.println("Carrera: "+ carrera);
+                            System.out.println("Promedio: "+ mayor);
+                            System.out.println("------------------------------------------------");
+                        }
+                        else{
+                            System.out.println("La carrera "+carrera+" no cuenta con estudiantes matriculados\n");
                         }
                     }
-                    System.out.println("El estudiante con mejor promedio de notas del Instituto es");
-                    System.out.println("Nombre: "+ nombre);
-                    System.out.println("Rut: "+ rut);
-                    System.out.println("Carrera: "+ carrera);
-                    System.out.println("Promedio: "+ mayor);
-                    System.out.println("------------------------------------------------");
+                    
                     break;
                 }
                 case 0:
