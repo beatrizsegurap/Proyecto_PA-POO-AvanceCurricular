@@ -31,7 +31,8 @@ public class Main {
         System.out.println("Menu Principal");
         System.out.println("Bienvenido/a");
         boolean flag = true;
-        
+        menuPrincipal f = new menuPrincipal();
+        f.setVisible(true);
         do{
             System.out.println("1.Registrar Estudiante");
             System.out.println("2.Mostrar todos los Estudiantes");
