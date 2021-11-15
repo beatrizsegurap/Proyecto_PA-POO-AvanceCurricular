@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author beatr
  */
-public class Profesor {
+public class Profesor implements InfoPersonal{
     private int rut;
     private String nombre;
     private ArrayList <Asignatura> asignaturasImpartidas;
@@ -73,5 +73,10 @@ public class Profesor {
     
     public ArrayList<Asignatura> getAsignaturasImpartidas(){
         return asignaturasImpartidas;
+    }
+    
+    @Override
+    public void infoBasica(){
+        System.out.println("Nombre: "+nombre+" Rut: "+rut+" Estado: Profesor");
     }
 }

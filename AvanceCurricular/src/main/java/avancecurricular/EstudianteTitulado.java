@@ -34,7 +34,7 @@ public class EstudianteTitulado extends Estudiante{
 
     @Override
     public void informacionPersonal() {
-        System.out.println("Nombre: "+getNombre()+" Rut: "+getRut()+" Carrera: "+getCarrera()+" Estado: Alumno Titulado año "+periodoTitulacion);
+        System.out.println("Nombre: "+getNombre()+" Rut: "+getRut()+" Estado: Alumno Titulado año "+periodoTitulacion+" de "+getCarrera());
     }
     
     public String estado(){

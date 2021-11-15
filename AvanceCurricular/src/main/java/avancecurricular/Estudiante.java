@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author beatr
  */
-public abstract class Estudiante {
+public abstract class Estudiante implements InfoPersonal{
     private int rut;
     private String nombre;
     private Malla carrera;
@@ -124,4 +124,8 @@ public abstract class Estudiante {
 
     public abstract void informacionPersonal();
     public abstract String estado();
+    
+    public void infoBasica(){
+        informacionPersonal();
+    }
 }

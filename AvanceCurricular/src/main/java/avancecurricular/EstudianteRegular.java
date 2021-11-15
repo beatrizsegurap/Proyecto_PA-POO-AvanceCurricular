@@ -35,7 +35,7 @@ public class EstudianteRegular extends Estudiante{
 
     @Override
     public void informacionPersonal() {
-        System.out.println("Nombre: "+getNombre()+" Rut: "+getRut()+" Carrera: "+getCarrera()+" Estado: Alumno Regular");
+        System.out.println("Nombre: "+getNombre()+" Rut: "+getRut()+" Estado: Alumno Regular de "+getCarrera());
     }
     
     public String estado(){

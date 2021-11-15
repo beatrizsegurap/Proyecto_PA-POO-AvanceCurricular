@@ -34,7 +34,7 @@ public class EstudianteCongelado extends Estudiante{
 
     @Override
     public void informacionPersonal() {
-        System.out.println("Nombre: "+getNombre()+" Rut: "+getRut()+" Carrera: "+getCarrera()+" Estado: Alumno Congelado");
+        System.out.println("Nombre: "+getNombre()+" Rut: "+getRut()+" Estado: Alumno Congelado en periodo "+periodoCongelacion+" de "+getCarrera());
     }
     
     public String estado(){

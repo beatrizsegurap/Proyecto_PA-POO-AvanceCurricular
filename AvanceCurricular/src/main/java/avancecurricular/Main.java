@@ -45,6 +45,7 @@ public class Main {
             System.out.println("10.Filtrar asignaturas ");
             System.out.println("11.Ver avance curricular por Estudiante");
             System.out.println("12.Estudiante de honor por carrera");
+            System.out.println("13.Informacion basica de estudiantes y profesores");
             System.out.println("0.Salir");
 
             op = lector1.nextInt();
@@ -739,6 +740,18 @@ public class Main {
                         }
                     }
                     
+                    break;
+                }
+                case 13:{
+                    System.out.println("------------------------------------------------");
+                    System.out.println("A continuacion se muestra la informacion completa de estudiantes y profesores del Instituto");
+                    alumnos.entrySet().forEach(entry -> {
+                        entry.getValue().infoBasica();
+                });
+                    profesores.entrySet().forEach(entry -> {
+                        entry.getValue().infoBasica();
+                });
+                    System.out.println("------------------------------------------------");
                     break;
                 }
                 case 0:
