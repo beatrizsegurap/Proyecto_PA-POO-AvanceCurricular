@@ -17,12 +17,12 @@ public class Modulo {
     private double nota;
     private int id;
 
-    public Modulo(int id,Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) {
+    public Modulo(int id,Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) throws notaInvalidException{
         this.asignatura = asignatura;
         this.estudiante = nombreEstudiante;
         this.nombreProfesor = nombreProfesor;
         this.periodo = periodo;
-        this.nota = nota;
+        this.setNota(nota);
     }
 
     public Asignatura getAsignatura() {
@@ -69,8 +69,11 @@ public class Modulo {
         return nota;
     }
     
-    public void setNota(double nota) {
-        this.nota = nota;
+    public void setNota(double nota) throws notaInvalidException{
+        if( nota>=40){
+            this.nota = nota;
+        }
+        else throw new notaInvalidException();
     }
     
     public String getNombreEstudiante() {

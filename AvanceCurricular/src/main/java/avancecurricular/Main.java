@@ -86,43 +86,47 @@ public class Main {
                                 int agregar = Integer.parseInt(lector1.nextLine());
                                 if(agregar==1)opcion2=true;
                                 while(opcion2){
-                                    System.out.println("Estas son las asignaturas asociadas a su carrera, ingrese la id de la asignatura a agregar: ");
-                                    carreraEstudiante.mostrarAsignaturas();
-                                    int idAsignaturaCursada = Integer.parseInt(lector1.nextLine());
-                                    Asignatura aCursada = ramos.get(idAsignaturaCursada);
-                                    if(aCursada.getAsignaturasPrerequisitos().size()!=0){
-                                        for(int i=0;i<aCursada.getAsignaturasPrerequisitos().size();i++){
-                                            if(!estudiante.cursoAsignatura(aCursada.getAsignaturasPrerequisitos().get(i).getId())){
-                                                Asignatura asignaturaPrerequisito = aCursada.getAsignaturasPrerequisitos().get(i);
-                                                System.out.println("ID: "+ asignaturaPrerequisito.getId()+"  Nombre: "+asignaturaPrerequisito.getNombre());
-                                                System.out.println("Debe inscribir esta asignatura prerequisito previamente");
-                                                System.out.println("Ingrese promedio notas: ");
-                                                double notaPre = Double.parseDouble(lector1.nextLine());
-                                                System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
-                                                String periodoPre = lector1.nextLine();
-                                                System.out.println("Ingrese nombre Profesor: ");
-                                                String profesorPre = lector1.nextLine();
-                                                int idModulo = asignaturaPrerequisito.getId()+asignaturaPrerequisito.getModulos().size();
-                                                Modulo moduloPre = new Modulo(idModulo,asignaturaPrerequisito,estudiante,profesorPre,periodoPre,notaPre);
-                                                estudiante.agregarModuloAprobada(moduloPre);
-                                                asignaturaPrerequisito.agregarMoodulo(moduloPre);
+                                        try{
+                                        System.out.println("Estas son las asignaturas asociadas a su carrera, ingrese la id de la asignatura a agregar: ");
+                                        carreraEstudiante.mostrarAsignaturas();
+                                        int idAsignaturaCursada = Integer.parseInt(lector1.nextLine());
+                                        Asignatura aCursada = ramos.get(idAsignaturaCursada);
+                                        if(aCursada.getAsignaturasPrerequisitos().size()!=0){
+                                            for(int i=0;i<aCursada.getAsignaturasPrerequisitos().size();i++){
+                                                if(!estudiante.cursoAsignatura(aCursada.getAsignaturasPrerequisitos().get(i).getId())){
+                                                    Asignatura asignaturaPrerequisito = aCursada.getAsignaturasPrerequisitos().get(i);
+                                                    System.out.println("ID: "+ asignaturaPrerequisito.getId()+"  Nombre: "+asignaturaPrerequisito.getNombre());
+                                                    System.out.println("Debe inscribir esta asignatura prerequisito previamente");
+                                                    System.out.println("Ingrese promedio notas: ");
+                                                    double notaPre = Double.parseDouble(lector1.nextLine());
+                                                    System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
+                                                    String periodoPre = lector1.nextLine();
+                                                    System.out.println("Ingrese nombre Profesor: ");
+                                                    String profesorPre = lector1.nextLine();
+                                                    int idModulo = asignaturaPrerequisito.getId()+asignaturaPrerequisito.getModulos().size();
+                                                    Modulo moduloPre = new Modulo(idModulo,asignaturaPrerequisito,estudiante,profesorPre,periodoPre,notaPre);
+                                                    estudiante.agregarModuloAprobada(moduloPre);
+                                                    asignaturaPrerequisito.agregarMoodulo(moduloPre);
+                                                }
                                             }
                                         }
-                                    }
-                                    System.out.println("Asignatura seleccionada: "+aCursada.getNombre());
-                                    System.out.println("Ingrese promedio notas: ");
-                                    double nota = Double.parseDouble(lector1.nextLine());
-                                    System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
-                                    String periodo = lector1.nextLine();
-                                    System.out.println("Ingrese nombre Profesor: ");
-                                    String profesor = lector1.nextLine();
-                                    int idModulo = aCursada.getId()+aCursada.getModulos().size();
-                                    Modulo moduloCursado = new Modulo(idModulo,aCursada,estudiante,profesor,periodo,nota);
-                                    estudiante.agregarModuloAprobada(moduloCursado);
-                                    aCursada.agregarMoodulo(moduloCursado);
-                                    System.out.println("¿Desea agregar mas modulos aprobados?si=1 /no=0: ");
-                                    agregar= Integer.parseInt(lector1.nextLine());
-                                    if(agregar!=1)opcion2=false;
+                                        System.out.println("Asignatura seleccionada: "+aCursada.getNombre());
+                                        System.out.println("Ingrese promedio notas: ");
+                                        double nota = Double.parseDouble(lector1.nextLine());
+                                        System.out.println("Ingrese periodo en el que curso la asignatura (ej: 2021-2): ");
+                                        String periodo = lector1.nextLine();
+                                        System.out.println("Ingrese nombre Profesor: ");
+                                        String profesor = lector1.nextLine();
+                                        int idModulo = aCursada.getId()+aCursada.getModulos().size();
+                                        Modulo moduloCursado = new Modulo(idModulo,aCursada,estudiante,profesor,periodo,nota);
+                                        estudiante.agregarModuloAprobada(moduloCursado);
+                                        aCursada.agregarMoodulo(moduloCursado);
+                                        System.out.println("¿Desea agregar mas modulos aprobados?si=1 /no=0: ");
+                                        agregar= Integer.parseInt(lector1.nextLine());
+                                        if(agregar!=1)opcion2=false;
+                                        }catch(notaInvalidException e2){
+                                            System.out.println("Error en el ingreso de la nota");
+                                        }
                                 }
                                 alumnos.put(rut,estudiante);
                                 System.out.println("El estudiante fue ingresado exitosamente");
@@ -139,6 +143,7 @@ public class Main {
                                 int agregar = Integer.parseInt(lector1.nextLine());
                                 if(agregar==1)opcion2=true;
                                 while(opcion2){
+                                    try{
                                     System.out.println("Estas son las asignaturas asociadas a su carrera, ingrese la id de la asignatura a agregar: ");
                                     carreraEstudiante.mostrarAsignaturas();
                                     int idAsignaturaCursada = Integer.parseInt(lector1.nextLine());
@@ -176,6 +181,9 @@ public class Main {
                                     System.out.println("¿Desea agregar mas modulos aprobados?si=1 /no=0: ");
                                     agregar= Integer.parseInt(lector1.nextLine());
                                     if(agregar!=1)opcion2=false;
+                                    }catch(notaInvalidException e2){
+                                        System.out.println("Error ingreso de nota");
+                                    }
                                 }
                                 alumnos.put(rut,estudiante);
                                 System.out.println("El estudiante fue ingresado exitosamente");
@@ -397,9 +405,13 @@ public class Main {
                                         break;
                                     }
                                     case 2:{
+                                        try{
                                         System.out.println("Ingrese la nueva cantidad de semestres de la carrera");
                                         int cantSemestres = Integer.parseInt(lector1.nextLine());
                                         entry.getValue().setCantSemestres(cantSemestres);
+                                        }catch(semestreInvalidException e3){
+                                            System.out.println("Error en ingresar cantidad de semestre, la carrera debe tener minimo 5 semestres");
+                                        }
                                         break;
                                     }
                                     case 3:{

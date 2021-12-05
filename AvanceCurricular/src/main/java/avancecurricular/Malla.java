@@ -16,9 +16,9 @@ public class Malla {
     ArrayList <Asignatura> asignaturas;
 
     //Constructor
-    public Malla(String carrera, int semestres){
+    public Malla(String carrera, int semestres) throws semestreInvalidException{
         nombreCarrera = carrera;
-        cantSemestres = semestres;
+        this.setCantSemestres(semestres);
         this.asignaturas = new ArrayList<>();
     }
 
@@ -27,8 +27,11 @@ public class Malla {
         return cantSemestres;
     }
 
-    public void setCantSemestres(int semestres){
-        cantSemestres = semestres;
+    public void setCantSemestres(int semestres)throws semestreInvalidException{
+        if(semestres>=5){
+            cantSemestres = semestres;
+        }
+        else throw new semestreInvalidException();
     }
 
     public String getNombreCarrera(){

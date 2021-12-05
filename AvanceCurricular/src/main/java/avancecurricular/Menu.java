@@ -47,6 +47,7 @@ public class Menu {
             csvCarreras = new CSV(locCarreras);
             String lineaCarrera = csvCarreras.firstLine();
             while (lineaCarrera != null) {
+                try{
                 String nombreCarrera = csvCarreras.get_csvField(lineaCarrera, 0);
                 Integer cantSemestres = Integer.parseInt(csvCarreras.get_csvField(lineaCarrera, 1));
                 Malla mallaCarrera = new Malla(nombreCarrera, cantSemestres);
@@ -61,6 +62,9 @@ public class Menu {
                 }
                 lineaCarrera = csvCarreras.nextLine();
                 carreras.put(nombreCarrera, mallaCarrera);
+                }catch(semestreInvalidException e2){
+                    System.out.println("Error en el ingreso de semestres de carrera");
+                }
             }
             System.out.println("Datos cargados exitosamente 2/2");
             //================================================================== 

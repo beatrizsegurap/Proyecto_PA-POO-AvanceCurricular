@@ -13,7 +13,7 @@ public class Practica extends Modulo{
     private int horas;
     private String lugar;
 
-    public Practica(int horas, String lugar, int id, Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) {
+    public Practica(int horas, String lugar, int id, Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) throws notaInvalidException{
         super(id, asignatura, nombreEstudiante, nombreProfesor, periodo, nota);
         this.horas = horas;
         this.lugar = lugar;
