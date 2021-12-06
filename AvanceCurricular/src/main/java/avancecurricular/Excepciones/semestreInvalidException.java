@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.Excepciones;
 
 /**
  *
  * @author beatr
  */
-public class notaInvalidException extends Exception{
-    
+public class semestreInvalidException extends Exception{
+    public semestreInvalidException(){
+        super("Cantidad de semestres invalido");
+    }
 }

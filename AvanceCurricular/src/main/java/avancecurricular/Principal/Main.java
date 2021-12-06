@@ -3,7 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.Principal;
+import avancecurricular.EstudianteTitulado;
+import avancecurricular.ventanas.Menu;
+import avancecurricular.Excepciones.semestreInvalidException;
+import avancecurricular.Excepciones.notaInvalidException;
+import avancecurricular.ventanas.menuPrincipal;
+import avancecurricular.clases.Malla;
+import avancecurricular.clases.Modulo;
+import avancecurricular.clases.EstudianteCongelado;
+import avancecurricular.clases.EstudianteRegular;
+import avancecurricular.clases.Profesor;
+import avancecurricular.clases.Asignatura;
+import avancecurricular.clases.Estudiante;
 import java.io.*;
 import java.util.*;
 /**
@@ -86,6 +98,7 @@ public class Main {
                                 int agregar = Integer.parseInt(lector1.nextLine());
                                 if(agregar==1)opcion2=true;
                                 while(opcion2){
+                                    //Exception para ingresar una nota valida entre 40 y 70
                                         try{
                                         System.out.println("Estas son las asignaturas asociadas a su carrera, ingrese la id de la asignatura a agregar: ");
                                         carreraEstudiante.mostrarAsignaturas();
@@ -182,7 +195,7 @@ public class Main {
                                     agregar= Integer.parseInt(lector1.nextLine());
                                     if(agregar!=1)opcion2=false;
                                     }catch(notaInvalidException e2){
-                                        System.out.println("Error ingreso de nota");
+                                        System.out.println("Error ingreso de la nota");
                                     }
                                 }
                                 alumnos.put(rut,estudiante);

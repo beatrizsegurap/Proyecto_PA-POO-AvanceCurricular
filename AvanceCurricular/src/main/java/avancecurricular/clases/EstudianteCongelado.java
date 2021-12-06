@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.clases;
 
+import avancecurricular.clases.Estudiante;
 import java.util.ArrayList;
 
 /**

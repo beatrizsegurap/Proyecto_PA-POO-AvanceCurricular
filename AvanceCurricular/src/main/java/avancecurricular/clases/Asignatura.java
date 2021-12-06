@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.clases;
 import java.util.*;
 /**
  *
@@ -28,9 +28,9 @@ public class Asignatura {
      */
     public Asignatura(int id, String nombre, int semestre, int creditos){
         this.id = id;
-        this.nombre = nombre;
-        this.semestre = semestre;
-        this.creditos = creditos;
+        this.setNombre(nombre);
+        this.setSemestre(semestre);
+        this.setCreditos(creditos);
         this.asignaturasPrerequisitos = new ArrayList<>();
         this.modulos = new ArrayList<>();
             

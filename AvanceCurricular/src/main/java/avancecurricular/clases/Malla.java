@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.clases;
+import avancecurricular.clases.Asignatura;
+import avancecurricular.clases.Estudiante;
+import avancecurricular.Excepciones.semestreInvalidException;
 import java.util.*;
 import java.io.*;
 /**
@@ -13,11 +16,11 @@ import java.io.*;
 public class Malla {
     private String nombreCarrera;
     private int cantSemestres;
-    ArrayList <Asignatura> asignaturas;
+    public ArrayList <Asignatura> asignaturas;
 
     //Constructor
     public Malla(String carrera, int semestres) throws semestreInvalidException{
-        nombreCarrera = carrera;
+        this.setNombreCarrera(carrera);
         this.setCantSemestres(semestres);
         this.asignaturas = new ArrayList<>();
     }

@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.clases;
+
+import avancecurricular.clases.Asignatura;
+import avancecurricular.clases.Estudiante;
+import avancecurricular.Excepciones.notaInvalidException;
 
 /**
  *
@@ -15,8 +19,8 @@ public class Practica extends Modulo{
 
     public Practica(int horas, String lugar, int id, Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) throws notaInvalidException{
         super(id, asignatura, nombreEstudiante, nombreProfesor, periodo, nota);
-        this.horas = horas;
-        this.lugar = lugar;
+        this.setHoras(horas);
+        this.setLugar(lugar);
     }
 
 

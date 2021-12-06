@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.clases;
+import avancecurricular.Interfaces.InfoPersonal;
 import java.util.*;
 /**
  *
@@ -17,14 +18,14 @@ public abstract class Estudiante implements InfoPersonal{
 
     //Constructor
     public Estudiante(int rut, String nombre, Malla carrera){
-        this.rut = rut;
-        this.nombre= nombre;
-        this.carrera = carrera;
+        this.setRut(rut);
+        this.setNombre(nombre);
+        this.setCarrera(carrera);
         asignaturasAprobadas = new ArrayList<>();
     }
 
     public Estudiante(int rut, String nombre, Malla carrera, ArrayList<Modulo> asignaturas){
-        this.rut = rut;
+        this.setRut(rut);
         this.nombre= nombre;
         this.carrera = carrera;
         asignaturasAprobadas = new ArrayList<>();
@@ -37,7 +38,9 @@ public abstract class Estudiante implements InfoPersonal{
     }
 
     public void setRut(int rut){
-        this.rut = rut;
+        if(Integer.toString(rut).length()<=9){
+            this.rut = rut;
+        }
     }
 
     public String getNombre(){
@@ -119,7 +122,13 @@ public abstract class Estudiante implements InfoPersonal{
         for(int i=0;i<this.asignaturasAprobadas.size();i++){
             promedio+=this.asignaturasAprobadas.get(i).getNota();
         }
-        return promedio/this.asignaturasAprobadas.size();
+        try{
+        promedio = promedio/this.asignaturasAprobadas.size();
+        }catch(ArithmeticException e){
+            System.out.println("No hay asignaturas aprobadas por lo que no es posible dividir por 0");
+            promedio = 0;
+        }
+        return promedio;
     }
 
     public abstract void informacionPersonal();

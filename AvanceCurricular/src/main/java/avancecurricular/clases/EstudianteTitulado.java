@@ -5,6 +5,9 @@
  */
 package avancecurricular;
 
+import avancecurricular.clases.Malla;
+import avancecurricular.clases.Modulo;
+import avancecurricular.clases.Estudiante;
 import java.util.ArrayList;
 
 /**

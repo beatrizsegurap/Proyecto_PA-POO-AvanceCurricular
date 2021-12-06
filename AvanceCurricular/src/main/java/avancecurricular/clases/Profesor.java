@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.clases;
+import avancecurricular.Interfaces.InfoPersonal;
+import avancecurricular.clases.Asignatura;
 import java.util.*;
 /**
  *
@@ -16,14 +18,14 @@ public class Profesor implements InfoPersonal{
 
     //Constructor con sobrecarga
     public Profesor(int rut, String nombre){
-        this.rut = rut;
-        this.nombre = nombre;
+        this.setRut(rut);
+        this.setNombre(nombre);
         this.asignaturasImpartidas = new ArrayList<>();
     }
 
     public Profesor(int rut, String nombre, ArrayList<Asignatura> aImpartidas){
-        this.rut = rut;
-        this.nombre = nombre;
+        this.setRut(rut);
+        this.setNombre(nombre);
         asignaturasImpartidas = new ArrayList<>();
         asignaturasImpartidas.addAll(aImpartidas);
     }

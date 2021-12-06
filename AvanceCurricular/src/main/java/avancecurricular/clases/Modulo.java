@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package avancecurricular;
+package avancecurricular.clases;
+import avancecurricular.clases.Asignatura;
+import avancecurricular.clases.Estudiante;
+import avancecurricular.Excepciones.notaInvalidException;
 import java.util.*;
 /**
  *
@@ -18,10 +21,10 @@ public class Modulo {
     private int id;
 
     public Modulo(int id,Asignatura asignatura, Estudiante nombreEstudiante, String nombreProfesor, String periodo, double nota) throws notaInvalidException{
-        this.asignatura = asignatura;
-        this.estudiante = nombreEstudiante;
-        this.nombreProfesor = nombreProfesor;
-        this.periodo = periodo;
+        this.setAsignatura(asignatura);
+        this.setNombreEstudiante(nombreEstudiante);
+        this.setNombreProfesor(nombreProfesor);
+        this.setPeriodo(periodo);
         this.setNota(nota);
     }
 
@@ -61,6 +64,10 @@ public class Modulo {
         return periodo;
     }
     
+    public void setNombreEstudiante(Estudiante estudiante){
+        this.estudiante=estudiante;
+    }
+    
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
@@ -70,7 +77,7 @@ public class Modulo {
     }
     
     public void setNota(double nota) throws notaInvalidException{
-        if( nota>=40){
+        if( nota>=40 && nota<=70){
             this.nota = nota;
         }
         else throw new notaInvalidException();
